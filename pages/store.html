@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>门店体验 - 珠韵东方</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 120px 0 80px;
+      margin-top: 70px;
+    }
+    .page-header h1 { color: var(--white); font-size: 2.5rem; margin-bottom: 12px; }
+    .page-header p { opacity: 0.9; font-size: 1.1rem; }
+    .store-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .store-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .store-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    .store-name { font-size: 1.3rem; color: var(--dark); margin-bottom: 16px; }
+    .store-address, .store-hours, .store-phone { color: var(--text-light); margin-bottom: 8px; font-size: 0.95rem; }
+    .store-services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .service-tag {
+      padding: 6px 12px;
+      background: var(--accent);
+      color: var(--primary);
+      font-size: 0.8rem;
+      border-radius: 20px;
+    }
+    .store-actions { margin-top: 20px; display: flex; gap: 12px; }
+    .store-actions a {
+      padding: 10px 20px;
+      border-radius: var(--radius-md);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .btn-navigate { background: var(--primary); color: var(--white); }
+    .btn-navigate:hover { background: var(--primary-dark); }
+    .btn-book { background: var(--gray-100); color: var(--text); }
+    .btn-book:hover { background: var(--gray-200); }
+    @media (max-width: 768px) { .store-list { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body data-page="store">
+  
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg></div>
+        <div class="logo-text">
+          <span class="logo-name">珠韵东方</span>
+          <span class="logo-en">ZHUYUN ORIENTAL</span>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="../index.html" class="nav-link">首页</a>
+        <a href="products.html" class="nav-link">产品中心</a>
+        <a href="about.html" class="nav-link">品牌故事</a>
+        <a href="store.html" class="nav-link active">门店体验</a>
+        <a href="member.html" class="nav-link">会员中心</a>
+        <a href="contact.html" class="nav-link">联系我们</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>门店体验</h1>
+      <p>欢迎莅临我们的门店，亲身感受珍珠的魅力</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="store-list" id="stores-container">
+        <div class="store-card">
+          <h3 class="store-name">昆明旗舰体验店</h3>
+          <p class="store-address">云南省昆明市五华区东风东路98号</p>
+          <p class="store-hours">营业时间：周一至周日 10:00-21:00</p>
+          <p class="store-phone">电话：0871-8888-9999</p>
+          <div class="store-services">
+            <span class="service-tag">线下体验</span>
+            <span class="service-tag">免费清洗</span>
+            <span class="service-tag">刻字服务</span>
+            <span class="service-tag">礼品包装</span>
+          </div>
+          <div class="store-actions">
+            <a href="#" class="btn-navigate">导航到这里</a>
+            <a href="#" class="btn-book">预约体验</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom"><p>&copy; 2025 珠韵东方 版权所有</p></div>
+    </div>
+  </footer>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+</body>
+</html>

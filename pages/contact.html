@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>联系我们 - 珠韵东方</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: var(--white);
+      text-align: center;
+      padding: 120px 0 80px;
+      margin-top: 70px;
+    }
+    .page-header h1 { color: var(--white); font-size: 2.5rem; margin-bottom: 12px; }
+    .page-header p { opacity: 0.9; font-size: 1.1rem; }
+    .contact-section { background: var(--white); padding: 80px 0; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    .contact-info h2 { font-size: 1.8rem; margin-bottom: 24px; }
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      align-items: flex-start;
+    }
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .contact-label { font-size: 0.9rem; color: var(--text-light); margin-bottom: 4px; }
+    .contact-value { font-size: 1.1rem; color: var(--dark); }
+    .contact-value a { color: var(--primary); }
+    .social-section { margin-top: 40px; }
+    .social-section h3 { font-size: 1.2rem; margin-bottom: 16px; }
+    .social-links { display: flex; gap: 16px; }
+    .social-link {
+      width: 48px;
+      height: 48px;
+      background: var(--gray-100);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      transition: var(--transition);
+    }
+    .social-link:hover { background: var(--primary); color: var(--white); }
+    .contact-form {
+      background: var(--gray-100);
+      padding: 40px;
+      border-radius: var(--radius-lg);
+    }
+    .contact-form h2 { font-size: 1.5rem; margin-bottom: 32px; }
+    .form-group { margin-bottom: 24px; }
+    .form-group label { display: block; font-size: 0.95rem; color: var(--text); margin-bottom: 8px; }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--gray-300);
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-family: inherit;
+      background: var(--white);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .form-group textarea { height: 120px; resize: vertical; }
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+    }
+    .btn-submit:hover { background: var(--primary-dark); }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body data-page="contact">
+  
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg></div>
+        <div class="logo-text">
+          <span class="logo-name">珠韵东方</span>
+          <span class="logo-en">ZHUYUN ORIENTAL</span>
+        </div>
+      </a>
+      <nav class="nav">
+        <a href="../index.html" class="nav-link">首页</a>
+        <a href="products.html" class="nav-link">产品中心</a>
+        <a href="about.html" class="nav-link">品牌故事</a>
+        <a href="store.html" class="nav-link">门店体验</a>
+        <a href="member.html" class="nav-link">会员中心</a>
+        <a href="contact.html" class="nav-link active">联系我们</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>联系我们</h1>
+      <p>期待与您的每一次交流</p>
+    </div>
+  </div>
+
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>联系方式</h2>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <p class="contact-label">客服热线</p>
+              <p class="contact-value"><a href="tel:400-888-9999">400-888-9999</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <div>
+              <p class="contact-label">电子邮箱</p>
+              <p class="contact-value"><a href="mailto:contact@zhuyun.com">contact@zhuyun.com</a></p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <p class="contact-label">公司地址</p>
+              <p class="contact-value">云南省昆明市五华区东风东路98号</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <p class="contact-label">营业时间</p>
+              <p class="contact-value">周一至周日 10:00-21:00</p>
+            </div>
+          </div>
+          
+          <div class="social-section">
+            <h3>关注我们</h3>
+            <div class="social-links">
+              <a href="#" class="social-link" title="微信">💬</a>
+              <a href="#" class="social-link" title="微博">📱</a>
+              <a href="#" class="social-link" title="小红书">📕</a>
+              <a href="#" class="social-link" title="抖音">🎵</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h2>在线留言</h2>
+          <form id="contact-form">
+            <div class="form-group">
+              <label>您的姓名</label>
+              <input type="text" placeholder="请输入您的姓名" required>
+            </div>
+            <div class="form-group">
+              <label>联系电话</label>
+              <input type="tel" placeholder="请输入您的手机号" required>
+            </div>
+            <div class="form-group">
+              <label>电子邮箱</label>
+              <input type="email" placeholder="请输入您的邮箱（选填）">
+            </div>
+            <div class="form-group">
+              <label>留言内容</label>
+              <textarea placeholder="请输入您的留言内容" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">提交留言</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom"><p>&copy; 2025 珠韵东方 版权所有</p></div>
+    </div>
+  </footer>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+    });
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('感谢您的留言！我们会尽快与您联系。');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

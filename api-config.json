@@ -1,0 +1,53 @@
+{
+  "api": {
+    "baseUrl": "https://api.zhuyun.com",
+    "timeout": 10000,
+    "endpoints": {
+      "brand": {
+        "info": "/api/brand/info",
+        "products": "/api/brand/products",
+        "stores": "/api/brand/stores",
+        "config": "/api/brand/config",
+        "banners": "/api/brand/banners"
+      },
+      "user": {
+        "login": "/api/user/login",
+        "register": "/api/user/register",
+        "info": "/api/user/info",
+        "update": "/api/user/update"
+      },
+      "order": {
+        "create": "/api/order/create",
+        "list": "/api/order/list",
+        "detail": "/api/order/detail",
+        "cancel": "/api/order/cancel"
+      },
+      "cart": {
+        "list": "/api/cart/list",
+        "add": "/api/cart/add",
+        "remove": "/api/cart/remove",
+        "update": "/api/cart/update"
+      },
+      "member": {
+        "points": "/api/member/points",
+        "benefits": "/api/member/benefits",
+        "level": "/api/member/level"
+      }
+    }
+  },
+  "mock": {
+    "enabled": true,
+    "dataPath": "./mock-data/",
+    "delay": 500
+  },
+  "storage": {
+    "tokenKey": "zhuyun_token",
+    "userKey": "zhuyun_user",
+    "cartKey": "zhuyun_cart"
+  },
+  "upload": {
+    "image": "/api/upload/image",
+    "maxSize": 5242880,
+    "allowedTypes": ["image/jpeg", "image/png", "image/webp"]
+  }
+}
