@@ -319,6 +319,7 @@
     }
 
     .product-card {
+      width: 140px;
       min-width: 140px;
       background: white;
       border-radius: 12px;
@@ -328,18 +329,17 @@
     }
 
     .product-img {
-      width: 100%;
+      width: 140px;
       height: 140px;
       background: linear-gradient(135deg, #f8f4f0 0%, #efe8e0 100%);
       overflow: hidden;
-      display: block;
     }
 
     .product-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      background: linear-gradient(135deg, #f8f4f0 0%, #efe8e0 100%);
     }
 
     .product-info {
@@ -1566,46 +1566,6 @@
             <div class="task-reward">+200积分</div>
           </div>
           <button class="task-btn" onclick="switchTab('mall')">去购物</button>
-        </div>
-      </div>
-
-      <!-- 热门商品 -->
-      <div class="section-header" style="margin-top: 20px;">
-        <h2 class="section-title"><i class="ri-fire-line"></i>热门商品</h2>
-        <span class="section-more" onclick="switchTab('mall')">更多 <i class="ri-arrow-right-s-line"></i></span>
-      </div>
-      <div class="product-scroll">
-        <div class="product-card" onclick="showToast('查看商品详情')">
-          <div class="product-img"><img src="images/Classic_Akoya_pearl_necklace___2026-05-02T04-28-36.png" alt="珍珠项链"></div>
-          <div class="product-info">
-            <div class="product-name">天然海水珍珠项链</div>
-            <div class="product-price">¥2,680 <span>起</span></div>
-            <div class="product-points">可用 2,000 积分抵扣</div>
-          </div>
-        </div>
-        <div class="product-card" onclick="showToast('查看商品详情')">
-          <div class="product-img"><img src="images/Japanese_Akoya_pearl_stud_earr_2026-05-02T04-27-20.png" alt="珍珠耳钉" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="product-info">
-            <div class="product-name">akoya极光天女珠耳钉</div>
-            <div class="product-price">¥1,880</div>
-            <div class="product-points">可用 1,500 积分抵扣</div>
-          </div>
-        </div>
-        <div class="product-card" onclick="showToast('查看商品详情')">
-          <div class="product-img"><img src="images/Golden_South_Sea_pearl_pendant_2026-05-02T04-27-25.png" alt="南洋金珠吊坠" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="product-info">
-            <div class="product-name">南洋金珠吊坠 18K金</div>
-            <div class="product-price">¥5,800</div>
-            <div class="product-points">可用 3,000 积分抵扣</div>
-          </div>
-        </div>
-        <div class="product-card" onclick="showToast('查看商品详情')">
-          <div class="product-img"><img src="images/White_Akoya_pearl_ring__18K_wh_2026-05-02T04-27-21.png" alt="珍珠戒指" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="product-info">
-            <div class="product-name">珍珠皇后澳白戒指</div>
-            <div class="product-price">¥3,980</div>
-            <div class="product-points">可用 2,500 积分抵扣</div>
-          </div>
         </div>
       </div>
 
