@@ -23,6 +23,9 @@
       --white: #FFFFFF;
       --red: #E74C3C;
       --green: #27AE60;
+      --blue: #3498DB;
+      --purple: #9B59B6;
+      --orange: #F39C12;
       --gradient-gold: linear-gradient(135deg, #C9A96E 0%, #E8D5A8 50%, #C9A96E 100%);
       --gradient-dark: linear-gradient(180deg, #1a1a1a 0%, #2C2C2C 100%);
       --shadow: 0 4px 20px rgba(0,0,0,0.1);
@@ -40,7 +43,6 @@
       position: relative;
     }
 
-    /* 手机框架 */
     .phone-frame {
       background: var(--white);
       min-height: 100vh;
@@ -304,75 +306,6 @@
       gap: 2px;
     }
 
-    /* 热门产品 */
-    .product-scroll {
-      display: flex;
-      gap: 12px;
-      padding: 0 20px;
-      overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-
-    .product-scroll::-webkit-scrollbar {
-      display: none;
-    }
-
-    .product-card {
-      width: 140px;
-      min-width: 140px;
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      flex-shrink: 0;
-    }
-
-    .product-img {
-      width: 140px;
-      height: 140px;
-      background: linear-gradient(135deg, #f8f4f0 0%, #efe8e0 100%);
-      overflow: hidden;
-    }
-
-    .product-img img {
-      width: 140px;
-      height: 140px;
-      object-fit: contain;
-      background: linear-gradient(135deg, #f8f4f0 0%, #efe8e0 100%);
-    }
-
-    .product-info {
-      padding: 10px;
-    }
-
-    .product-name {
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 4px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      height: 36px;
-    }
-
-    .product-price {
-      color: var(--red);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .product-price span {
-      font-size: 10px;
-    }
-
-    .product-points {
-      color: var(--gold-dark);
-      font-size: 11px;
-      margin-top: 2px;
-    }
-
     /* 积分任务 */
     .task-list {
       padding: 0 20px;
@@ -426,6 +359,1015 @@
       padding: 6px 16px;
       border-radius: 20px;
       font-size: 12px;
+      cursor: pointer;
+    }
+
+    /* ========== 商品分类 ========== */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding: 0 20px 20px;
+    }
+
+    .category-card {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .category-card:active {
+      transform: scale(0.95);
+    }
+
+    .category-card i {
+      font-size: 32px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .category-card h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .category-card p {
+      font-size: 11px;
+      color: var(--gray);
+    }
+
+    /* ========== 商品列表 ========== */
+    .product-list {
+      padding: 0 20px 20px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .product-img {
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(135deg, #f8f4f0 0%, #efe8e0 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: var(--red);
+      color: white;
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .product-badge.virtual {
+      background: var(--blue);
+    }
+
+    .product-badge.points {
+      background: var(--purple);
+    }
+
+    .product-info {
+      padding: 12px;
+    }
+
+    .product-name {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      height: 36px;
+    }
+
+    .product-price {
+      color: var(--red);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .product-price .original {
+      font-size: 11px;
+      color: #999;
+      text-decoration: line-through;
+      margin-left: 6px;
+    }
+
+    .product-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .product-points {
+      color: var(--gold-dark);
+      font-size: 11px;
+    }
+
+    .product-sales {
+      font-size: 10px;
+      color: var(--gray);
+    }
+
+    .product-add-btn {
+      width: 28px;
+      height: 28px;
+      background: var(--gradient-gold);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ========== 商品详情页 ========== */
+    .detail-page {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: white;
+      z-index: 300;
+      overflow-y: auto;
+      display: none;
+    }
+
+    .detail-page.active {
+      display: block;
+    }
+
+    .detail-header {
+      position: sticky;
+      top: 0;
+      background: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--light-gray);
+      z-index: 10;
+    }
+
+    .detail-back {
+      font-size: 24px;
+      color: var(--dark);
+      cursor: pointer;
+    }
+
+    .detail-title {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .detail-actions {
+      display: flex;
+      gap: 15px;
+      font-size: 20px;
+      color: var(--gray);
+    }
+
+    .detail-swiper {
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, #f8f4f0 0%, #efe8e0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .detail-swiper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .detail-content {
+      padding: 20px;
+    }
+
+    .detail-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .detail-price {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--red);
+    }
+
+    .detail-price .original {
+      font-size: 14px;
+      color: #999;
+      text-decoration: line-through;
+      font-weight: normal;
+    }
+
+    .detail-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .detail-tag {
+      background: #FFF3E0;
+      color: var(--orange);
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .detail-tag.virtual {
+      background: #E3F2FD;
+      color: var(--blue);
+    }
+
+    .detail-name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .detail-desc {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .detail-section {
+      background: var(--light-gray);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .detail-section-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .detail-section-title i {
+      color: var(--gold);
+    }
+
+    .detail-spec-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+      font-size: 13px;
+    }
+
+    .detail-spec-item:last-child {
+      border-bottom: none;
+    }
+
+    .detail-spec-label {
+      color: var(--gray);
+    }
+
+    .detail-spec-value {
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    /* 虚拟商品信息 */
+    .virtual-info {
+      background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .virtual-info h4 {
+      font-size: 14px;
+      color: var(--blue);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .virtual-info p {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* 积分抵扣提示 */
+    .points-tip {
+      background: linear-gradient(135deg, #FFF9C4 0%, #FFF59D 100%);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .points-tip i {
+      font-size: 28px;
+      color: var(--gold-dark);
+    }
+
+    .points-tip-text {
+      flex: 1;
+    }
+
+    .points-tip-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .points-tip-desc {
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    /* 推广赚积分 */
+    .share-earn {
+      background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+
+    .share-earn h4 {
+      font-size: 14px;
+      color: var(--green);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .share-earn p {
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    /* 配送信息 */
+    .shipping-info {
+      background: var(--light-gray);
+      border-radius: 12px;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    .shipping-info i {
+      color: var(--green);
+    }
+
+    /* 盲盒活动入口 */
+    .blindbox-banner {
+      background: linear-gradient(135deg, #E1BEE7 0%, #CE93D8 100%);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .blindbox-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(255,255,255,0.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+    }
+
+    .blindbox-text h4 {
+      font-size: 15px;
+      color: white;
+      margin-bottom: 4px;
+    }
+
+    .blindbox-text p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .blindbox-arrow {
+      margin-left: auto;
+      font-size: 24px;
+      color: white;
+    }
+
+    /* ========== 购物车 ========== */
+    .cart-empty {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .cart-empty i {
+      font-size: 80px;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    .cart-empty h3 {
+      font-size: 16px;
+      color: var(--gray);
+      margin-bottom: 10px;
+    }
+
+    .cart-empty p {
+      font-size: 13px;
+      color: #999;
+    }
+
+    .cart-empty .go-shop {
+      display: inline-block;
+      background: var(--gradient-gold);
+      color: white;
+      padding: 10px 30px;
+      border-radius: 25px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .cart-list {
+      padding: 0 20px 100px;
+    }
+
+    .cart-store {
+      margin-bottom: 15px;
+    }
+
+    .cart-store-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .cart-store-header i {
+      color: var(--gold);
+    }
+
+    .cart-item {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      display: flex;
+      gap: 12px;
+      box-shadow: var(--shadow);
+      margin-bottom: 10px;
+    }
+
+    .cart-check {
+      width: 22px;
+      height: 22px;
+      border: 2px solid #ddd;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .cart-check.checked {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: white;
+    }
+
+    .cart-item-img {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(135deg, #f8f4f0 0%, #efe8e0 100%);
+      border-radius: 8px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .cart-item-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .cart-item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .cart-item-name {
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 6px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .cart-item-spec {
+      font-size: 11px;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+
+    .cart-item-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .cart-item-price {
+      color: var(--red);
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .cart-item-price small {
+      font-size: 11px;
+    }
+
+    .cart-qty {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cart-qty button {
+      width: 24px;
+      height: 24px;
+      border: 1px solid #ddd;
+      background: white;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cart-qty span {
+      min-width: 24px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* 积分抵扣行 */
+    .cart-points-row {
+      background: #FFF9C4;
+      border-radius: 12px;
+      padding: 12px 15px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .cart-points-row label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .cart-points-row label i {
+      color: var(--gold-dark);
+    }
+
+    .cart-points-row .switch {
+      width: 44px;
+      height: 24px;
+      background: #ccc;
+      border-radius: 12px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .cart-points-row .switch.active {
+      background: var(--gold);
+    }
+
+    .cart-points-row .switch::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      transition: left 0.3s;
+    }
+
+    .cart-points-row .switch.active::after {
+      left: 22px;
+    }
+
+    /* 购物车底部 */
+    .cart-footer {
+      position: fixed;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 430px;
+      background: white;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+
+    .cart-total {
+      font-size: 14px;
+    }
+
+    .cart-total .price {
+      color: var(--red);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .cart-total .points {
+      font-size: 12px;
+      color: var(--gold-dark);
+    }
+
+    .cart-checkout {
+      background: var(--gradient-gold);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* ========== 物流跟踪 ========== */
+    .logistics-page {
+      padding: 20px;
+    }
+
+    .logistics-header {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    .logistics-status {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .logistics-status i {
+      font-size: 40px;
+      color: var(--green);
+    }
+
+    .logistics-status-text h4 {
+      font-size: 16px;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+
+    .logistics-status-text p {
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    .logistics-detail {
+      display: flex;
+      gap: 20px;
+      padding-top: 12px;
+      border-top: 1px solid var(--light-gray);
+      font-size: 13px;
+    }
+
+    .logistics-detail-item {
+      color: var(--gray);
+    }
+
+    .logistics-detail-item span {
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    /* 物流时间线 */
+    .timeline {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 12px;
+      padding-bottom: 20px;
+      position: relative;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      background: #ddd;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .timeline-item.active .timeline-dot {
+      background: var(--green);
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 5px;
+      top: 16px;
+      bottom: 0;
+      width: 2px;
+      background: #ddd;
+    }
+
+    .timeline-item:last-child .timeline-line {
+      display: none;
+    }
+
+    .timeline-content {
+      flex: 1;
+    }
+
+    .timeline-text {
+      font-size: 13px;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+
+    .timeline-time {
+      font-size: 11px;
+      color: var(--gray);
+    }
+
+    /* ========== 盲盒活动 ========== */
+    .blindbox-page {
+      padding: 20px;
+    }
+
+    .blindbox-hero {
+      background: linear-gradient(135deg, #7B1FA2 0%, #9C27B0 50%, #AB47BC 100%);
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .blindbox-hero h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .blindbox-hero p {
+      font-size: 13px;
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+
+    .blindbox-hero .my-points {
+      background: rgba(255,255,255,0.2);
+      padding: 10px 20px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .blindbox-rules {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .blindbox-rules h4 {
+      font-size: 15px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .blindbox-rules h4 i {
+      color: var(--gold);
+    }
+
+    .blindbox-rules ul {
+      font-size: 12px;
+      color: var(--gray);
+      padding-left: 20px;
+    }
+
+    .blindbox-rules li {
+      margin-bottom: 8px;
+    }
+
+    /* 盲盒商品 */
+    .blindbox-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .blindbox-item {
+      background: white;
+      border-radius: 12px;
+      padding: 15px 10px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .blindbox-item:active {
+      transform: scale(0.95);
+    }
+
+    .blindbox-item.mystery {
+      background: linear-gradient(135deg, #E1BEE7 0%, #CE93D8 100%);
+      color: white;
+    }
+
+    .blindbox-item.mystery i {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .blindbox-item.mystery p {
+      font-size: 12px;
+    }
+
+    .blindbox-item.revealed {
+      border: 2px solid var(--gold);
+    }
+
+    .blindbox-item.revealed img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .blindbox-item.revealed .name {
+      font-size: 11px;
+      color: var(--dark);
+    }
+
+    .blindbox-item.revealed .rarity {
+      font-size: 10px;
+      color: var(--gold-dark);
+      margin-top: 4px;
+    }
+
+    /* 盲盒结果弹窗 */
+    .blindbox-result {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 500;
+      display: none;
+    }
+
+    .blindbox-result.active {
+      display: flex;
+    }
+
+    .blindbox-result-content {
+      background: white;
+      border-radius: 20px;
+      width: 85%;
+      max-width: 320px;
+      padding: 30px;
+      text-align: center;
+      animation: popIn 0.5s ease;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .blindbox-result-content h3 {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .blindbox-result-content img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .blindbox-result-content .name {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .blindbox-result-content .rarity {
+      font-size: 13px;
+      color: var(--gold-dark);
+      margin-bottom: 20px;
+    }
+
+    .blindbox-result-content button {
+      width: 100%;
+      padding: 12px;
+      background: var(--gradient-gold);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      font-size: 15px;
       cursor: pointer;
     }
 
@@ -554,79 +1496,7 @@
       color: var(--gold);
     }
 
-    /* 会员等级进度 */
-    .level-section {
-      padding: 20px;
-    }
-
-    .level-cards {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      position: relative;
-    }
-
-    .level-cards::before {
-      content: '';
-      position: absolute;
-      top: 20px;
-      left: 10%;
-      right: 10%;
-      height: 4px;
-      background: linear-gradient(90deg, #ccc 0%, #C9A96E 50%, #C9A96E 100%);
-      border-radius: 2px;
-    }
-
-    .level-card {
-      text-align: center;
-      flex: 1;
-      position: relative;
-      z-index: 1;
-    }
-
-    .level-badge-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: #ccc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 8px;
-      font-size: 18px;
-      color: white;
-    }
-
-    .level-card.active .level-badge-icon {
-      background: var(--gradient-gold);
-      box-shadow: 0 0 15px rgba(201, 169, 110, 0.5);
-    }
-
-    .level-card.reached .level-badge-icon {
-      background: var(--gold);
-    }
-
-    .level-card-name {
-      font-size: 11px;
-      color: var(--gray);
-    }
-
-    .level-card.active .level-card-name {
-      color: var(--gold-dark);
-      font-weight: 600;
-    }
-
-    .level-card-points {
-      font-size: 10px;
-      color: #999;
-      margin-top: 2px;
-    }
-
     /* 会员权益 */
-    .rights-section {
-      padding: 0 20px 20px;
-    }
-
     .rights-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -654,10 +1524,6 @@
     }
 
     /* 订单入口 */
-    .order-section {
-      padding: 0 20px 20px;
-    }
-
     .order-box {
       background: white;
       border-radius: 16px;
@@ -684,14 +1550,6 @@
       color: var(--gold);
     }
 
-    .order-status {
-      font-size: 12px;
-      color: var(--gray);
-      display: flex;
-      align-items: center;
-      gap: 2px;
-    }
-
     .order-items {
       display: flex;
       justify-content: space-around;
@@ -714,27 +1572,7 @@
       color: var(--gray);
     }
 
-    .order-badge {
-      position: relative;
-    }
-
-    .order-badge::after {
-      content: '2';
-      position: absolute;
-      top: -5px;
-      right: 5px;
-      background: var(--red);
-      color: white;
-      font-size: 10px;
-      padding: 1px 5px;
-      border-radius: 10px;
-    }
-
     /* 功能列表 */
-    .menu-section {
-      padding: 0 20px 20px;
-    }
-
     .menu-list {
       background: white;
       border-radius: 16px;
@@ -775,288 +1613,6 @@
       color: #ccc;
     }
 
-    .menu-item .tag {
-      background: var(--red);
-      color: white;
-      font-size: 10px;
-      padding: 2px 8px;
-      border-radius: 10px;
-      margin-right: 8px;
-    }
-
-    /* ========== 积分商城 ========== */
-    .points-mall-header {
-      background: var(--gradient-dark);
-      padding: 20px;
-      color: white;
-      text-align: center;
-    }
-
-    .points-mall-header h2 {
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
-
-    .points-mall-header h2 i {
-      color: var(--gold);
-      margin-right: 6px;
-    }
-
-    .my-points {
-      font-size: 14px;
-      color: #aaa;
-    }
-
-    .my-points span {
-      color: var(--gold);
-      font-weight: 600;
-      font-size: 18px;
-    }
-
-    .mall-tabs {
-      display: flex;
-      padding: 15px 20px;
-      gap: 10px;
-      background: white;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .mall-tab {
-      flex: 1;
-      padding: 10px;
-      text-align: center;
-      font-size: 14px;
-      color: var(--gray);
-      border-radius: 25px;
-      transition: all 0.3s;
-    }
-
-    .mall-tab.active {
-      background: var(--gradient-gold);
-      color: white;
-    }
-
-    .mall-content {
-      padding: 20px;
-    }
-
-    .mall-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .mall-item {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .mall-img {
-      width: 100%;
-      height: 120px;
-      background: linear-gradient(135deg, #f8f4f0 0%, #efe8e0 100%);
-      overflow: hidden;
-      display: block;
-    }
-
-    .mall-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .mall-info {
-      padding: 12px;
-    }
-
-    .mall-name {
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 6px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-      height: 36px;
-    }
-
-    .mall-points {
-      color: var(--gold-dark);
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .mall-points span {
-      font-size: 11px;
-    }
-
-    .mall-exchange {
-      width: 100%;
-      background: var(--gradient-gold);
-      color: white;
-      border: none;
-      padding: 8px;
-      border-radius: 20px;
-      font-size: 12px;
-      cursor: pointer;
-    }
-
-    .mall-exchange:disabled {
-      background: #ccc;
-      cursor: not-allowed;
-    }
-
-    /* ========== 产品商城 ========== */
-    .mall-header {
-      background: var(--gradient-dark);
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: white;
-    }
-
-    .mall-header input {
-      flex: 1;
-      background: rgba(255,255,255,0.1);
-      border: none;
-      padding: 10px 15px;
-      border-radius: 25px;
-      color: white;
-      font-size: 14px;
-    }
-
-    .mall-header input::placeholder {
-      color: rgba(255,255,255,0.5);
-    }
-
-    .mall-header i {
-      font-size: 22px;
-    }
-
-    .category-scroll {
-      display: flex;
-      gap: 10px;
-      padding: 15px 20px;
-      overflow-x: auto;
-      background: white;
-      scrollbar-width: none;
-    }
-
-    .category-scroll::-webkit-scrollbar {
-      display: none;
-    }
-
-    .category-item {
-      padding: 8px 20px;
-      background: var(--light-gray);
-      border-radius: 20px;
-      font-size: 13px;
-      white-space: nowrap;
-      color: var(--gray);
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .category-item.active {
-      background: var(--gradient-gold);
-      color: white;
-    }
-
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      padding: 15px 20px;
-    }
-
-    .product-grid .product-card {
-      min-width: auto;
-    }
-
-    /* ========== 优惠券 ========== */
-    .coupon-list {
-      padding: 20px;
-    }
-
-    .coupon-item {
-      background: linear-gradient(135deg, #FFE4B5 0%, #FFF9E6 100%);
-      border-radius: 12px;
-      margin-bottom: 15px;
-      display: flex;
-      overflow: hidden;
-      border: 1px solid var(--gold-light);
-    }
-
-    .coupon-left {
-      padding: 20px 15px;
-      text-align: center;
-      border-right: 1px dashed var(--gold);
-      min-width: 100px;
-    }
-
-    .coupon-value {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--red);
-    }
-
-    .coupon-value span {
-      font-size: 14px;
-    }
-
-    .coupon-limit {
-      font-size: 11px;
-      color: var(--gray);
-      margin-top: 4px;
-    }
-
-    .coupon-right {
-      flex: 1;
-      padding: 15px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .coupon-name {
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .coupon-desc {
-      font-size: 11px;
-      color: var(--gray);
-      margin-bottom: 8px;
-    }
-
-    .coupon-time {
-      font-size: 10px;
-      color: #999;
-    }
-
-    .coupon-btn {
-      background: var(--red);
-      color: white;
-      border: none;
-      padding: 6px 16px;
-      border-radius: 15px;
-      font-size: 12px;
-      cursor: pointer;
-      align-self: flex-start;
-    }
-
-    .coupon-btn.used {
-      background: #ccc;
-    }
-
     /* ========== 底部导航 ========== */
     .tab-bar {
       position: fixed;
@@ -1080,6 +1636,7 @@
       padding: 5px 20px;
       cursor: pointer;
       transition: all 0.3s;
+      position: relative;
     }
 
     .tab-item i {
@@ -1091,6 +1648,22 @@
     .tab-item span {
       font-size: 10px;
       color: #999;
+    }
+
+    .tab-item .badge {
+      position: absolute;
+      top: 0;
+      right: 10px;
+      background: var(--red);
+      color: white;
+      font-size: 10px;
+      min-width: 16px;
+      height: 16px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
     }
 
     .tab-item.active i {
@@ -1129,167 +1702,118 @@
       to { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
     }
 
-    /* 兑换弹窗 */
-    .modal-overlay {
+    /* 分享弹窗 */
+    .share-modal {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       background: rgba(0,0,0,0.5);
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s;
+      z-index: 400;
+      display: none;
     }
 
-    .modal-overlay.show {
-      opacity: 1;
-      visibility: visible;
+    .share-modal.active {
+      display: block;
     }
 
-    .modal-content {
+    .share-modal-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
       background: white;
-      border-radius: 20px;
-      width: 90%;
-      max-width: 350px;
-      padding: 25px;
-      transform: scale(0.9);
-      transition: transform 0.3s;
+      border-radius: 20px 20px 0 0;
+      padding: 20px;
     }
 
-    .modal-overlay.show .modal-content {
-      transform: scale(1);
-    }
-
-    .modal-header {
+    .share-modal-title {
       text-align: center;
+      font-size: 16px;
+      font-weight: 600;
       margin-bottom: 20px;
     }
 
-    .modal-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, #FFF9E6 0%, #FFE4B5 100%);
+    .share-modal-title i {
+      color: var(--gold);
+      margin-right: 6px;
+    }
+
+    .share-options {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .share-option {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .share-option i {
+      width: 50px;
+      height: 50px;
+      background: #07C160;
+      color: white;
+      font-size: 24px;
       border-radius: 50%;
-      margin: 0 auto 12px;
-      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
     }
 
-    .modal-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
+    .share-option:nth-child(2) i {
+      background: #FF6B6B;
     }
 
-    .modal-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--dark);
-      margin-bottom: 4px;
+    .share-option:nth-child(3) i {
+      background: #4A90D9;
     }
 
-    .modal-subtitle {
+    .share-option span {
       font-size: 12px;
       color: var(--gray);
     }
 
-    .modal-info {
+    .share-link {
       background: var(--light-gray);
       border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 20px;
-    }
-
-    .modal-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      padding: 5px 0;
-    }
-
-    .modal-row:first-child {
-      border-bottom: 1px dashed #ddd;
-      padding-bottom: 10px;
-      margin-bottom: 5px;
-    }
-
-    .modal-row .label {
-      color: var(--gray);
-    }
-
-    .modal-row .value {
-      color: var(--dark);
-      font-weight: 500;
-    }
-
-    .modal-row .value.points {
-      color: var(--gold-dark);
-      font-weight: 600;
-    }
-
-    .modal-row .value.deduct {
-      color: var(--green);
-      font-weight: 600;
-    }
-
-    .modal-buttons {
-      display: flex;
-      gap: 10px;
-    }
-
-    .modal-btn {
-      flex: 1;
-      padding: 12px;
-      border-radius: 25px;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      border: none;
-      transition: all 0.2s;
-    }
-
-    .modal-btn.cancel {
-      background: var(--light-gray);
-      color: var(--gray);
-    }
-
-    .modal-btn.confirm {
-      background: var(--gradient-gold);
-      color: white;
-    }
-
-    .modal-btn:active {
-      transform: scale(0.95);
-    }
-
-    /* 成功弹窗 */
-    .success-modal .modal-icon {
-      background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
-    }
-
-    .success-check {
-      width: 60px;
-      height: 60px;
-      background: var(--green);
-      border-radius: 50%;
+      padding: 12px 15px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      margin: 0 auto 12px;
-      font-size: 30px;
-      color: white;
-      animation: successPop 0.5s ease;
+      gap: 10px;
+      margin-bottom: 15px;
     }
 
-    @keyframes successPop {
-      0% { transform: scale(0); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
+    .share-link input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    .share-link button {
+      background: var(--gradient-gold);
+      color: white;
+      border: none;
+      padding: 6px 15px;
+      border-radius: 15px;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .share-cancel {
+      width: 100%;
+      padding: 12px;
+      background: var(--light-gray);
+      border: none;
+      border-radius: 25px;
+      font-size: 15px;
+      color: var(--gray);
+      cursor: pointer;
     }
 
     /* 积分规则页面 */
@@ -1316,12 +1840,6 @@
       color: var(--gold);
     }
 
-    .rules-header p {
-      font-size: 12px;
-      color: #aaa;
-      margin-top: 8px;
-    }
-
     .rules-section {
       background: white;
       border-radius: 16px;
@@ -1332,11 +1850,10 @@
 
     .rules-section h3 {
       font-size: 15px;
+      margin-bottom: 15px;
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 15px;
-      color: var(--dark);
     }
 
     .rules-section h3 i {
@@ -1392,63 +1909,6 @@
       white-space: nowrap;
     }
 
-    .level-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12px;
-    }
-
-    .level-table th {
-      background: var(--light-gray);
-      padding: 10px 8px;
-      text-align: left;
-      font-weight: 600;
-      color: var(--dark);
-    }
-
-    .level-table th:first-child {
-      border-radius: 8px 0 0 8px;
-    }
-
-    .level-table th:last-child {
-      border-radius: 0 8px 8px 0;
-    }
-
-    .level-table td {
-      padding: 12px 8px;
-      border-bottom: 1px solid var(--light-gray);
-      color: var(--gray);
-    }
-
-    .level-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .level-table .highlight {
-      color: var(--gold-dark);
-      font-weight: 600;
-    }
-
-    .benefits-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-
-    .benefit-tag {
-      background: var(--light-gray);
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 12px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .benefit-tag i {
-      color: var(--green);
-    }
-
     .back-btn {
       position: fixed;
       top: 15px;
@@ -1464,11 +1924,6 @@
       font-size: 18px;
       z-index: 50;
       cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .back-btn:hover {
-      background: rgba(0,0,0,0.7);
     }
   </style>
 </head>
@@ -1493,7 +1948,7 @@
             <span class="member-level"><i class="ri-vip-diamond-fill"></i>黄金会员</span>
             <div class="member-stats">
               <div class="stat-item">
-                <div class="stat-value">8,860</div>
+                <div class="stat-value" id="homePoints">8,860</div>
                 <div class="stat-label">积分</div>
               </div>
               <div class="stat-item">
@@ -1507,21 +1962,21 @@
 
       <!-- 快捷功能 -->
       <div class="quick-actions">
-        <div class="quick-action" onclick="showToast('积分商城')">
-          <i class="ri-exchange-funds-line"></i>
-          <span>积分兑换</span>
-        </div>
-        <div class="quick-action" onclick="showToast('优惠券中心')">
-          <i class="ri-ticket-3-line"></i>
-          <span>领优惠券</span>
-        </div>
-        <div class="quick-action" onclick="showToast('门店预约')">
-          <i class="ri-calendar-check-line"></i>
-          <span>门店预约</span>
-        </div>
-        <div class="quick-action" onclick="switchTab('mall')">
-          <i class="ri-shopping-bag-3-line"></i>
+        <div class="quick-action" onclick="switchTab('category')">
+          <i class="ri-store-2-line"></i>
           <span>全部商品</span>
+        </div>
+        <div class="quick-action" onclick="showShareModal()">
+          <i class="ri-share-circle-line"></i>
+          <span>分享赚钱</span>
+        </div>
+        <div class="quick-action" onclick="switchTab('blindbox')">
+          <i class="ri-gift-line"></i>
+          <span>盲盒活动</span>
+        </div>
+        <div class="quick-action" onclick="switchTab('cart')">
+          <i class="ri-shopping-cart-2-line"></i>
+          <span>购物车</span>
         </div>
       </div>
 
@@ -1531,10 +1986,37 @@
           <i class="ri-gift-2-line"></i>
         </div>
         <div class="welfare-text">
-          <div class="welfare-title">生日专属礼包</div>
-          <div class="welfare-desc">您有一份价值520元礼包待领取</div>
+          <div class="welfare-title">邀请好友得积分</div>
+          <div class="welfare-desc">每邀请1位好友下单，双方各得500积分</div>
         </div>
-        <button class="welfare-btn" onclick="showToast('礼包已领取')">立即领取</button>
+        <button class="welfare-btn" onclick="showShareModal()">立即邀请</button>
+      </div>
+
+      <!-- 商品分类 -->
+      <div class="section-header" style="margin-top: 10px;">
+        <h2 class="section-title"><i class="ri-apps-line"></i>商品分类</h2>
+      </div>
+      <div class="category-grid">
+        <div class="category-card" onclick="switchTab('category')">
+          <i class="ri-sparkling-line"></i>
+          <h4>珍珠饰品</h4>
+          <p>天然海水珍珠</p>
+        </div>
+        <div class="category-card" onclick="switchTab('category')">
+          <i class="ri-robot-line"></i>
+          <h4>AI定制</h4>
+          <p>智能个性化设计</p>
+        </div>
+        <div class="category-card" onclick="switchTab('category')">
+          <i class="ri-briefcase-line"></i>
+          <h4>盲盒专区</h4>
+          <p>惊喜好物兑换</p>
+        </div>
+        <div class="category-card" onclick="switchTab('category')">
+          <i class="ri-file-list-3-line"></i>
+          <h4>积分好礼</h4>
+          <p>积分全额兑换</p>
+        </div>
       </div>
 
       <!-- 积分任务 -->
@@ -1549,15 +2031,15 @@
             <div class="task-name">分享商品</div>
             <div class="task-reward">+50积分</div>
           </div>
-          <button class="task-btn" onclick="showToast('分享成功 +50积分')">去完成</button>
+          <button class="task-btn" onclick="showShareModal()">去完成</button>
         </div>
         <div class="task-item">
-          <div class="task-icon"><i class="ri-camera-line"></i></div>
+          <div class="task-icon"><i class="ri-links-line"></i></div>
           <div class="task-info">
-            <div class="task-name">完善个人资料</div>
-            <div class="task-reward">+100积分</div>
+            <div class="task-name">邀请好友注册</div>
+            <div class="task-reward">+100积分/人</div>
           </div>
-          <button class="task-btn" onclick="showToast('资料已完善 +100积分')">去完成</button>
+          <button class="task-btn" onclick="showShareModal()">去邀请</button>
         </div>
         <div class="task-item">
           <div class="task-icon"><i class="ri-shopping-cart-line"></i></div>
@@ -1565,11 +2047,11 @@
             <div class="task-name">每日首单</div>
             <div class="task-reward">+200积分</div>
           </div>
-          <button class="task-btn" onclick="switchTab('mall')">去购物</button>
+          <button class="task-btn" onclick="switchTab('category')">去购物</button>
         </div>
       </div>
 
-      <!-- 门店信息 -->
+      <!-- 附近门店 -->
       <div class="section-header" style="margin-top: 20px;">
         <h2 class="section-title"><i class="ri-store-2-line"></i>附近门店</h2>
         <span class="section-more">查看全部 <i class="ri-arrow-right-s-line"></i></span>
@@ -1583,6 +2065,156 @@
           </div>
           <button class="task-btn secondary" onclick="showToast('正在为您导航')"><i class="ri-navigation-line"></i></button>
         </div>
+      </div>
+    </div>
+
+    <!-- ========== 商品分类页 ========== -->
+    <div class="page" id="page-category">
+      <div class="home-header" style="padding: 15px 20px;">
+        <h1 style="margin-bottom: 0;"><i class="ri-store-2-line"></i>商品商城</h1>
+      </div>
+
+      <!-- 分类标签 -->
+      <div class="category-scroll" style="display: flex; gap: 10px; padding: 15px 20px; overflow-x: auto; background: white;">
+        <div class="category-item active" onclick="filterProducts('all', this)">全部</div>
+        <div class="category-item" onclick="filterProducts('physical', this)">实物商品</div>
+        <div class="category-item" onclick="filterProducts('virtual', this)">虚拟商品</div>
+        <div class="category-item" onclick="filterProducts('points', this)">积分兑换</div>
+        <div class="category-item" onclick="filterProducts('blindbox', this)">盲盒专区</div>
+      </div>
+
+      <!-- 商品列表 -->
+      <div class="product-list">
+        <div class="product-grid" id="productGrid">
+          <!-- 商品将通过JS动态渲染 -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== 购物车 ========== -->
+    <div class="page" id="page-cart">
+      <div class="home-header" style="padding: 15px 20px;">
+        <h1 style="margin-bottom: 0;"><i class="ri-shopping-cart-2-line"></i>购物车</h1>
+      </div>
+
+      <div id="cartContent">
+        <!-- 购物车内容将通过JS动态渲染 -->
+      </div>
+    </div>
+
+    <!-- ========== 物流跟踪 ========== -->
+    <div class="page" id="page-logistics">
+      <div class="home-header" style="padding: 15px 20px;">
+        <h1 style="margin-bottom: 0;"><i class="ri-truck-line"></i>物流跟踪</h1>
+      </div>
+
+      <div class="logistics-page">
+        <div class="logistics-header">
+          <div class="logistics-status">
+            <i class="ri-truck-line"></i>
+            <div class="logistics-status-text">
+              <h4>包裹运输中</h4>
+              <p>预计3天后送达</p>
+            </div>
+          </div>
+          <div class="logistics-detail">
+            <div class="logistics-detail-item">快递单号：<span>SF1234567890</span></div>
+            <div class="logistics-detail-item">承运商：<span>顺丰速运</span></div>
+          </div>
+        </div>
+
+        <div class="timeline">
+          <h4 class="timeline-title">物流动态</h4>
+          <div class="timeline-item active">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+            <div class="timeline-content">
+              <div class="timeline-text">包裹已到达【北京分拨中心】</div>
+              <div class="timeline-time">2026-05-09 14:30</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+            <div class="timeline-content">
+              <div class="timeline-text">包裹已发出，揽收员：【张师傅】</div>
+              <div class="timeline-time">2026-05-08 09:15</div>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-text">商家正在打包商品</div>
+              <div class="timeline-time">2026-05-07 18:20</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== 盲盒活动 ========== -->
+    <div class="page" id="page-blindbox">
+      <div class="home-header" style="padding: 15px 20px;">
+        <h1 style="margin-bottom: 0;"><i class="ri-gift-line"></i>盲盒活动</h1>
+      </div>
+
+      <div class="blindbox-page">
+        <div class="blindbox-hero">
+          <h2>🎁 幸运盲盒</h2>
+          <p>消耗积分抽取惊喜好物，100%中奖！</p>
+          <div class="my-points">
+            <i class="ri-coins-line"></i> 我的积分：<span id="blindboxPoints">8,860</span>
+          </div>
+        </div>
+
+        <div class="blindbox-rules">
+          <h4><i class="ri-information-line"></i>活动规则</h4>
+          <ul>
+            <li>每次抽取消耗 500 积分</li>
+            <li>奖品包括：实物商品、虚拟商品、积分返还等</li>
+            <li>积分返还率：10%-100%不等</li>
+            <li>虚拟商品即刻到账，实物需填写收货地址</li>
+          </ul>
+        </div>
+
+        <h4 style="font-size: 15px; margin-bottom: 12px;">🎰 点击抽取盲盒</h4>
+        <div class="blindbox-grid" id="blindboxGrid">
+          <div class="blindbox-item mystery" onclick="openBlindbox(this)">
+            <i class="ri-question-mark"></i>
+            <p>盲盒一</p>
+          </div>
+          <div class="blindbox-item mystery" onclick="openBlindbox(this)">
+            <i class="ri-question-mark"></i>
+            <p>盲盒二</p>
+          </div>
+          <div class="blindbox-item mystery" onclick="openBlindbox(this)">
+            <i class="ri-question-mark"></i>
+            <p>盲盒三</p>
+          </div>
+          <div class="blindbox-item mystery" onclick="openBlindbox(this)">
+            <i class="ri-question-mark"></i>
+            <p>盲盒四</p>
+          </div>
+          <div class="blindbox-item mystery" onclick="openBlindbox(this)">
+            <i class="ri-question-mark"></i>
+            <p>盲盒五</p>
+          </div>
+          <div class="blindbox-item mystery" onclick="openBlindbox(this)">
+            <i class="ri-question-mark"></i>
+            <p>盲盒六</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 盲盒结果弹窗 -->
+    <div class="blindbox-result" id="blindboxResult">
+      <div class="blindbox-result-content">
+        <h3>🎉 恭喜获得</h3>
+        <img id="resultImg" src="" alt="奖品">
+        <div class="name" id="resultName">南洋金珠吊坠</div>
+        <div class="rarity" id="resultRarity">稀有 · 价值 ¥580</div>
+        <button onclick="closeBlindboxResult()">确定</button>
       </div>
     </div>
 
@@ -1602,57 +2234,18 @@
           </div>
           <div class="points-card">
             <div class="points-main">
-              <div class="points-value">8,860</div>
+              <div class="points-value" id="memberPoints">8,860</div>
               <div class="points-label">可用积分</div>
             </div>
             <div class="points-actions">
-              <button class="points-btn" onclick="switchTab('points-mall')">
-                <i class="ri-exchange-funds-line"></i>积分商城
+              <button class="points-btn" onclick="showShareModal()">
+                <i class="ri-share-line"></i>推广赚积分
               </button>
-              <button class="points-btn secondary" onclick="showToast('积分明细')">
-                <i class="ri-list-ordered"></i>积分明细
+              <button class="points-btn secondary" onclick="showRules()">
+                <i class="ri-file-list-3-line"></i>积分规则
               </button>
             </div>
           </div>
-        </div>
-      </div>
-
-      <!-- 会员等级 -->
-      <div class="level-section">
-        <div class="level-cards">
-          <div class="level-card reached">
-            <div class="level-badge-icon"><i class="ri-vip-diamond-fill"></i></div>
-            <div class="level-card-name">普卡</div>
-            <div class="level-card-points">0积分</div>
-          </div>
-          <div class="level-card reached">
-            <div class="level-badge-icon"><i class="ri-vip-diamond-fill"></i></div>
-            <div class="level-card-name">银卡</div>
-            <div class="level-card-points">5,000</div>
-          </div>
-          <div class="level-card active">
-            <div class="level-badge-icon"><i class="ri-vip-diamond-fill"></i></div>
-            <div class="level-card-name">金卡</div>
-            <div class="level-card-points">10,000</div>
-          </div>
-          <div class="level-card">
-            <div class="level-badge-icon"><i class="ri-vip-diamond-fill"></i></div>
-            <div class="level-card-name">钻卡</div>
-            <div class="level-card-points">30,000</div>
-          </div>
-        </div>
-        <div class="level-progress">
-          <div class="level-current">
-            <div class="level-icon"><i class="ri-vip-diamond-fill"></i></div>
-            <div class="level-info">
-              <div class="level-name">黄金会员</div>
-              <div class="level-next">距离钻石会员还差 21,140 积分</div>
-            </div>
-          </div>
-          <div class="progress-bar">
-            <div class="progress-fill" style="width: 33%;"></div>
-          </div>
-          <div class="level-tips">当前积分 <span>8,860</span>，再获取 <span>21,140</span> 积分可升级为钻石会员</div>
         </div>
       </div>
 
@@ -1660,7 +2253,7 @@
       <div class="section-header">
         <h2 class="section-title"><i class="ri-vip-crown-line"></i>黄金会员专属权益</h2>
       </div>
-      <div class="rights-section">
+      <div class="rights-section" style="padding: 0 20px 20px;">
         <div class="rights-grid">
           <div class="right-item">
             <i class="ri-percent-line"></i>
@@ -1679,8 +2272,8 @@
             <span>生日礼包</span>
           </div>
           <div class="right-item">
-            <i class="ri-time-line"></i>
-            <span>优先预约</span>
+            <i class="ri-coins-line"></i>
+            <span>积分翻倍</span>
           </div>
           <div class="right-item">
             <i class="ri-shield-star-line"></i>
@@ -1690,62 +2283,30 @@
             <i class="ri-coupon-3-line"></i>
             <span>专属优惠券</span>
           </div>
-          <div class="right-item" onclick="showRules()">
-            <i class="ri-information-line"></i>
-            <span>查看全部</span>
+          <div class="right-item" onclick="switchTab('logistics')">
+            <i class="ri-truck-line"></i>
+            <span>物流查询</span>
           </div>
-        </div>
-      </div>
-
-      <!-- 优惠券 -->
-      <div class="section-header">
-        <h2 class="section-title"><i class="ri-ticket-3-line"></i>我的优惠券</h2>
-        <span class="section-more">全部 <i class="ri-arrow-right-s-line"></i></span>
-      </div>
-      <div class="coupon-list">
-        <div class="coupon-item">
-          <div class="coupon-left">
-            <div class="coupon-value">¥<span>100</span></div>
-            <div class="coupon-limit">满500可用</div>
-          </div>
-          <div class="coupon-right">
-            <div class="coupon-name">新人专享券</div>
-            <div class="coupon-desc">全场通用·已领取</div>
-            <div class="coupon-time">有效期至 2026.12.31</div>
-          </div>
-          <button class="coupon-btn" onclick="showToast('去使用')" style="align-self: center; margin-right: 10px;">立即使用</button>
-        </div>
-        <div class="coupon-item">
-          <div class="coupon-left">
-            <div class="coupon-value"><span>85</span>折</div>
-            <div class="coupon-limit">最高减100</div>
-          </div>
-          <div class="coupon-right">
-            <div class="coupon-name">生日特惠券</div>
-            <div class="coupon-desc">会员生日当月专享</div>
-            <div class="coupon-time">有效期至 2026.05.31</div>
-          </div>
-          <button class="coupon-btn" onclick="showToast('去使用')" style="align-self: center; margin-right: 10px;">立即使用</button>
         </div>
       </div>
 
       <!-- 订单入口 -->
-      <div class="order-section">
+      <div class="section-header">
+        <h2 class="section-title"><i class="ri-file-list-3-line"></i>我的订单</h2>
+        <span class="section-more">全部 <i class="ri-arrow-right-s-line"></i></span>
+      </div>
+      <div class="order-section" style="padding: 0 20px 20px;">
         <div class="order-box">
-          <div class="order-header">
-            <h3><i class="ri-file-list-3-line"></i>我的订单</h3>
-            <span class="order-status">全部订单 <i class="ri-arrow-right-s-line"></i></span>
-          </div>
           <div class="order-items">
-            <div class="order-item order-badge">
+            <div class="order-item">
               <i class="ri-wallet-line"></i>
               <span>待付款</span>
             </div>
-            <div class="order-item">
+            <div class="order-item" onclick="switchTab('logistics')">
               <i class="ri-truck-line"></i>
               <span>待发货</span>
             </div>
-            <div class="order-item">
+            <div class="order-item" onclick="switchTab('logistics')">
               <i class="ri-gift-line"></i>
               <span>待收货</span>
             </div>
@@ -1758,27 +2319,16 @@
       </div>
 
       <!-- 功能菜单 -->
-      <div class="menu-section">
+      <div class="menu-section" style="padding: 0 20px 20px;">
         <div class="menu-list">
-          <div class="menu-item" onclick="showToast('门店预约')">
-            <i class="ri-calendar-check-line"></i>
-            <span>门店预约</span>
-            <span class="tag">热门</span>
+          <div class="menu-item" onclick="showShareModal()">
+            <i class="ri-share-line"></i>
+            <span>分享推广 · 赚取积分</span>
             <i class="ri-arrow-right-s-line arrow"></i>
           </div>
-          <div class="menu-item" onclick="showToast('护理服务')">
-            <i class="ri-hand-heart-line"></i>
-            <span>免费护理服务</span>
-            <i class="ri-arrow-right-s-line arrow"></i>
-          </div>
-          <div class="menu-item" onclick="showRules()">
-            <i class="ri-file-list-3-line"></i>
-            <span>积分规则说明</span>
-            <i class="ri-arrow-right-s-line arrow"></i>
-          </div>
-          <div class="menu-item" onclick="showToast('积分明细')">
-            <i class="ri-list-ordered"></i>
-            <span>积分明细</span>
+          <div class="menu-item" onclick="switchTab('blindbox')">
+            <i class="ri-gift-line"></i>
+            <span>盲盒活动</span>
             <i class="ri-arrow-right-s-line arrow"></i>
           </div>
           <div class="menu-item" onclick="showToast('收货地址')">
@@ -1791,99 +2341,15 @@
             <span>专属客服</span>
             <i class="ri-arrow-right-s-line arrow"></i>
           </div>
+          <div class="menu-item" onclick="showRules()">
+            <i class="ri-file-list-3-line"></i>
+            <span>积分规则说明</span>
+            <i class="ri-arrow-right-s-line arrow"></i>
+          </div>
           <div class="menu-item" onclick="showToast('设置')">
             <i class="ri-settings-3-line"></i>
             <span>设置</span>
             <i class="ri-arrow-right-s-line arrow"></i>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ========== 积分商城 ========== -->
-    <div class="page" id="page-points-mall">
-      <div class="points-mall-header">
-        <h2><i class="ri-exchange-funds-line"></i>积分商城</h2>
-        <div class="my-points">我的积分：<span>8,860</span></div>
-      </div>
-
-      <div class="mall-tabs">
-        <div class="mall-tab active" onclick="setMallTab(this, 'gift')">积分好礼</div>
-        <div class="mall-tab" onclick="setMallTab(this, 'service')">服务兑换</div>
-        <div class="mall-tab" onclick="setMallTab(this, 'discount')">积分优惠券</div>
-      </div>
-
-      <div class="mall-content">
-        <div class="mall-grid" id="mall-gift">
-          <div class="mall-item">
-            <div class="mall-img"><img src="images/Pearl_jewelry_care_kit__cleani_2026-05-02T04-27-58.png" alt="护理套装" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="mall-info">
-              <div class="mall-name">珍珠清洁护理套装</div>
-              <div class="mall-points">2,000 <span>积分</span></div>
-              <button class="mall-exchange" onclick="exchangeGift(this, '护理套装')">立即兑换</button>
-            </div>
-          </div>
-          <div class="mall-item">
-            <div class="mall-img"><img src="images/Sterling_silver_gold_plated_pe_2026-05-02T04-28-36.png" alt="银饰耳钉" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="mall-info">
-              <div class="mall-name">银饰镀金耳钉一对</div>
-              <div class="mall-points">3,000 <span>积分</span></div>
-              <button class="mall-exchange" onclick="exchangeGift(this, '耳钉')">立即兑换</button>
-            </div>
-          </div>
-          <div class="mall-item">
-            <div class="mall-img"><img src="images/Pearl_jewelry专用保养油__delicate_b_2026-05-02T04-28-04.png" alt="保养油" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="mall-info">
-              <div class="mall-name">珍珠专用保养油</div>
-              <div class="mall-points">500 <span>积分</span></div>
-              <button class="mall-exchange" onclick="exchangeGift(this, '保养油')">立即兑换</button>
-            </div>
-          </div>
-          <div class="mall-item">
-            <div class="mall-img"><img src="images/Pearl_jewelry_store_voucher_co_2026-05-02T04-28-37.png" alt="护理券" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="mall-info">
-              <div class="mall-name">门店护理体验券</div>
-              <div class="mall-points">1,000 <span>积分</span></div>
-              <button class="mall-exchange" onclick="exchangeGift(this, '护理券')">立即兑换</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="mall-grid" id="mall-service" style="display: none;">
-          <div class="mall-item">
-            <div class="mall-img"><img src="images/Elegant_baroque_pearl_pendant__2026-05-02T04-27-24.png" alt="清洁服务" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="mall-info">
-              <div class="mall-name">专业珍珠清洁服务</div>
-              <div class="mall-points">2,000 <span>积分</span></div>
-              <button class="mall-exchange" onclick="exchangeGift(this, '清洁服务')">立即预约</button>
-            </div>
-          </div>
-          <div class="mall-item">
-            <div class="mall-img"><img src="images/Classic_Akoya_pearl_necklace___2026-05-02T04-28-36.png" alt="穿线服务" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="mall-info">
-              <div class="mall-name">珍珠项链重新穿线</div>
-              <div class="mall-points">3,000 <span>积分</span></div>
-              <button class="mall-exchange" onclick="exchangeGift(this, '穿线服务')">立即预约</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="mall-grid" id="mall-discount" style="display: none;">
-          <div class="mall-item">
-            <div class="mall-img"><img src="images/Pearl_jewelry_store_voucher_co_2026-05-02T04-28-37.png" alt="50元券" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="mall-info">
-              <div class="mall-name">¥50 优惠券</div>
-              <div class="mall-points">1,000 <span>积分</span></div>
-              <button class="mall-exchange" onclick="exchangeGift(this, '50元券')">立即兑换</button>
-            </div>
-          </div>
-          <div class="mall-item">
-            <div class="mall-img"><img src="images/Sterling_silver_gold_plated_pe_2026-05-02T04-28-36.png" alt="9折券" style="width:100%;height:100%;object-fit:cover;"></div>
-            <div class="mall-info">
-              <div class="mall-name">全场通用 9折券</div>
-              <div class="mall-points">5,000 <span>积分</span></div>
-              <button class="mall-exchange" onclick="exchangeGift(this, '9折券')">立即兑换</button>
-            </div>
           </div>
         </div>
       </div>
@@ -1894,10 +2360,8 @@
       <div class="rules-page">
         <div class="rules-header">
           <h2><i class="ri-file-list-3-line"></i>积分规则说明</h2>
-          <p>了解积分获取与使用规则</p>
         </div>
 
-        <!-- 获取积分 -->
         <div class="rules-section">
           <h3><i class="ri-add-circle-line"></i>如何获取积分</h3>
           <div class="rule-item">
@@ -1909,14 +2373,6 @@
             <div class="rule-points">+1/元</div>
           </div>
           <div class="rule-item">
-            <div class="rule-icon"><i class="ri-cake-3-line"></i></div>
-            <div class="rule-content">
-              <div class="rule-title">生日祝福</div>
-              <div class="rule-desc">生日当天消费享双倍积分</div>
-            </div>
-            <div class="rule-points">x2</div>
-          </div>
-          <div class="rule-item">
             <div class="rule-icon"><i class="ri-share-circle-line"></i></div>
             <div class="rule-content">
               <div class="rule-title">分享商品</div>
@@ -1925,172 +2381,145 @@
             <div class="rule-points">+50</div>
           </div>
           <div class="rule-item">
-            <div class="rule-icon"><i class="ri-edit-line"></i></div>
+            <div class="rule-icon"><i class="ri-links-line"></i></div>
             <div class="rule-content">
-              <div class="rule-title">完善资料</div>
-              <div class="rule-desc">首次完善个人资料</div>
+              <div class="rule-title">邀请好友</div>
+              <div class="rule-desc">好友注册成功</div>
             </div>
             <div class="rule-points">+100</div>
           </div>
           <div class="rule-item">
-            <div class="rule-icon"><i class="ri-calendar-check-line"></i></div>
+            <div class="rule-icon"><i class="ri-hand-coin-line"></i></div>
             <div class="rule-content">
-              <div class="rule-title">每日签到</div>
-              <div class="rule-desc">连续签到额外奖励</div>
+              <div class="rule-title">好友下单</div>
+              <div class="rule-desc">好友通过您的链接下单</div>
             </div>
-            <div class="rule-points">+5~30</div>
+            <div class="rule-points">+500</div>
           </div>
         </div>
 
-        <!-- 会员等级 -->
         <div class="rules-section">
-          <h3><i class="ri-vip-crown-line"></i>会员等级规则</h3>
-          <table class="level-table">
-            <thead>
-              <tr>
-                <th>等级</th>
-                <th>积分要求</th>
-                <th>专属权益</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>普卡会员</td>
-                <td>0 积分</td>
-                <td>基础折扣</td>
-              </tr>
-              <tr>
-                <td>银卡会员</td>
-                <td>5,000 积分</td>
-                <td>9.5折 + 生日礼包</td>
-              </tr>
-              <tr>
-                <td class="highlight">金卡会员</td>
-                <td class="highlight">10,000 积分</td>
-                <td class="highlight">9折 + 免费护理</td>
-              </tr>
-              <tr>
-                <td>钻石会员</td>
-                <td>30,000 积分</td>
-                <td>8.5折 + 全套服务</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- 等级权益 -->
-        <div class="rules-section">
-          <h3><i class="ri-gift-line"></i>各等级专属权益</h3>
-          <div class="benefits-list">
-            <div class="benefit-tag"><i class="ri-check-line"></i>新人礼包</div>
-            <div class="benefit-tag"><i class="ri-check-line"></i>积分兑换</div>
-            <div class="benefit-tag"><i class="ri-check-line"></i>生日双倍积分</div>
-            <div class="benefit-tag"><i class="ri-check-line"></i>专属客服</div>
-            <div class="benefit-tag"><i class="ri-check-line"></i>生日9.5折券</div>
-            <div class="benefit-tag"><i class="ri-check-line"></i>免费配送</div>
-            <div class="benefit-tag"><i class="ri-check-line"></i>新品试用</div>
-            <div class="benefit-tag"><i class="ri-check-line"></i>免费护理</div>
-            <div class="benefit-tag"><i class="ri-check-line"></i>优先预约</div>
-            <div class="benefit-tag"><i class="ri-check-line"></i>专属9折券</div>
-            <div class="benefit-tag"><i class="ri-check-line"></i>免费改款</div>
-            <div class="benefit-tag"><i class="ri-check-line"></i>一对一定制</div>
-          </div>
-        </div>
-
-        <!-- 使用规则 -->
-        <div class="rules-section">
-          <h3><i class="ri-information-line"></i>积分使用规则</h3>
+          <h3><i class="ri-money-cny-circle-line"></i>如何消耗积分</h3>
           <div class="rule-item">
-            <div class="rule-icon"><i class="ri-time-line"></i></div>
+            <div class="rule-icon"><i class="ri-shopping-bag-line"></i></div>
             <div class="rule-content">
-              <div class="rule-title">积分有效期</div>
-              <div class="rule-desc">获取后24个月内有效</div>
-            </div>
-          </div>
-          <div class="rule-item">
-            <div class="rule-icon"><i class="ri-money-cny-circle-line"></i></div>
-            <div class="rule-content">
-              <div class="rule-title">积分抵扣</div>
+              <div class="rule-title">积分抵现金</div>
               <div class="rule-desc">100积分 = 1元，最高抵扣50%</div>
             </div>
+            <div class="rule-points">抵现</div>
           </div>
           <div class="rule-item">
-            <div class="rule-icon"><i class="ri-exchange-line"></i></div>
+            <div class="rule-icon"><i class="ri-gift-line"></i></div>
             <div class="rule-content">
-              <div class="rule-title">兑换限制</div>
-              <div class="rule-desc">部分商品需达到会员等级</div>
+              <div class="rule-title">积分兑换商品</div>
+              <div class="rule-desc">积分全额抵扣商品</div>
             </div>
+            <div class="rule-points">兑换</div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon"><i class="ri-box-3-line"></i></div>
+            <div class="rule-content">
+              <div class="rule-title">盲盒抽取</div>
+              <div class="rule-desc">每次消耗500积分</div>
+            </div>
+            <div class="rule-points">-500</div>
           </div>
         </div>
       </div>
       <div class="back-btn" onclick="switchTab('member')"><i class="ri-arrow-left-s-line"></i></div>
     </div>
 
-    <!-- ========== 产品商城 ========== -->
-    <div class="page" id="page-mall">
-      <div class="mall-header">
-        <i class="ri-search-line"></i>
-        <input type="text" placeholder="搜索珍珠饰品..." onfocus="showToast('搜索功能')">
-        <i class="ri-notification-3-line"></i>
+    <!-- 商品详情页 -->
+    <div class="detail-page" id="detailPage">
+      <div class="detail-header">
+        <span class="detail-back" onclick="closeDetail()"><i class="ri-arrow-left-s-line"></i></span>
+        <span class="detail-title">商品详情</span>
+        <div class="detail-actions">
+          <i class="ri-share-line" onclick="showShareModal()"></i>
+          <i class="ri-more-line"></i>
+        </div>
       </div>
 
-      <div class="category-scroll">
-        <div class="category-item active">全部</div>
-        <div class="category-item">项链</div>
-        <div class="category-item">耳饰</div>
-        <div class="category-item">戒指</div>
-        <div class="category-item">手链</div>
-        <div class="category-item">吊坠</div>
-        <div class="category-item">套装</div>
+      <div class="detail-swiper">
+        <img id="detailImg" src="" alt="商品图片">
       </div>
 
-      <div class="product-grid">
-        <div class="product-card" onclick="showToast('查看商品详情')">
-          <div class="product-img"><img src="images/Classic_Akoya_pearl_necklace___2026-05-02T04-28-36.png" alt="珍珠项链" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="product-info">
-            <div class="product-name">天然海水珍珠项链 经典款</div>
-            <div class="product-price">¥2,680</div>
-            <div class="product-points">可用 2,000 积分抵扣</div>
+      <div class="detail-content">
+        <div class="detail-price-row">
+          <span class="detail-price" id="detailPrice">¥2,680</span>
+          <span class="original" id="detailOriginal">¥3,200</span>
+        </div>
+
+        <div class="detail-tags" id="detailTags">
+          <!-- 标签动态生成 -->
+        </div>
+
+        <h2 class="detail-name" id="detailName">天然海水珍珠项链 经典款</h2>
+        <p class="detail-desc" id="detailDesc">精选优质海水珍珠，圆润光泽，18K金扣设计，优雅大方，适合各种场合佩戴。</p>
+
+        <!-- 虚拟商品提示 -->
+        <div class="virtual-info" id="virtualInfo" style="display: none;">
+          <h4><i class="ri-computer-line"></i>虚拟商品说明</h4>
+          <p>购买后即刻收到兑换码/下载链接，支持7×24小时自动发货，无需物流配送。</p>
+        </div>
+
+        <!-- 积分抵扣提示 -->
+        <div class="points-tip">
+          <i class="ri-coins-line"></i>
+          <div class="points-tip-text">
+            <div class="points-tip-title">可用积分抵扣 <span id="detailPointsOffset">200积分抵 ¥2</span></div>
+            <div class="points-tip-desc">开启后最高可抵扣订单金额的50%</div>
           </div>
         </div>
-        <div class="product-card" onclick="showToast('查看商品详情')">
-          <div class="product-img"><img src="images/Japanese_Akoya_pearl_stud_earr_2026-05-02T04-27-20.png" alt="珍珠耳钉" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="product-info">
-            <div class="product-name">akoya极光天女珠耳钉</div>
-            <div class="product-price">¥1,880</div>
-            <div class="product-points">可用 1,500 积分抵扣</div>
+
+        <!-- 推广赚积分 -->
+        <div class="share-earn" onclick="showShareModal()">
+          <h4><i class="ri-share-line"></i>分享该商品，好友购买赚 <span style="color: var(--red);">+500积分</span></h4>
+          <p>每成功邀请1位好友下单，双方各得500积分</p>
+        </div>
+
+        <!-- 盲盒入口 -->
+        <div class="blindbox-banner" onclick="switchTab('blindbox'); closeDetail();">
+          <div class="blindbox-icon">🎁</div>
+          <div class="blindbox-text">
+            <h4>盲盒活动进行中</h4>
+            <p>消费满500元即可获得盲盒抽取机会</p>
+          </div>
+          <span class="blindbox-arrow"><i class="ri-arrow-right-s-line"></i></span>
+        </div>
+
+        <!-- 商品规格 -->
+        <div class="detail-section">
+          <div class="detail-section-title"><i class="ri-file-list-3-line"></i>商品信息</div>
+          <div class="detail-spec-item">
+            <span class="detail-spec-label">商品编号</span>
+            <span class="detail-spec-value" id="detailSku">SP-2024001</span>
+          </div>
+          <div class="detail-spec-item">
+            <span class="detail-spec-label">商品类型</span>
+            <span class="detail-spec-value" id="detailType">实物商品</span>
+          </div>
+          <div class="detail-spec-item">
+            <span class="detail-spec-label">配送方式</span>
+            <span class="detail-spec-value" id="detailShip">顺丰速运 · 预计3-5天送达</span>
           </div>
         </div>
-        <div class="product-card" onclick="showToast('查看商品详情')">
-          <div class="product-img"><img src="images/Golden_South_Sea_pearl_pendant_2026-05-02T04-27-25.png" alt="南洋金珠吊坠" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="product-info">
-            <div class="product-name">南洋金珠吊坠 18K金镶嵌</div>
-            <div class="product-price">¥5,800</div>
-            <div class="product-points">可用 3,000 积分抵扣</div>
-          </div>
+
+        <!-- 配送信息 -->
+        <div class="shipping-info">
+          <i class="ri-truck-line"></i>
+          <span>配送至：北京市朝阳区 · 快递费 ¥0（满99元免运费）</span>
         </div>
-        <div class="product-card" onclick="showToast('查看商品详情')">
-          <div class="product-img"><img src="images/White_Akoya_pearl_ring__18K_wh_2026-05-02T04-27-21.png" alt="珍珠戒指" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="product-info">
-            <div class="product-name">珍珠皇后澳白戒指</div>
-            <div class="product-price">¥3,980</div>
-            <div class="product-points">可用 2,500 积分抵扣</div>
-          </div>
-        </div>
-        <div class="product-card" onclick="showToast('查看商品详情')">
-          <div class="product-img"><img src="images/Tahitian_black_pearl_bracelet__2026-05-02T04-27-51.png" alt="黑珍珠手链" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="product-info">
-            <div class="product-name">大溪地黑珍珠手链</div>
-            <div class="product-price">¥4,200</div>
-            <div class="product-points">可用 2,800 积分抵扣</div>
-          </div>
-        </div>
-        <div class="product-card" onclick="showToast('查看商品详情')">
-          <div class="product-img"><img src="images/Elegant_pearl_tiara_crown_set__2026-05-02T04-28-02.png" alt="珍珠皇冠套装" style="width:100%;height:100%;object-fit:cover;"></div>
-          <div class="product-info">
-            <div class="product-name">珍珠皇冠套装 结婚首选</div>
-            <div class="product-price">¥12,800</div>
-            <div class="product-points">可用 5,000 积分抵扣</div>
+
+        <!-- 底部操作栏 -->
+        <div style="display: flex; gap: 12px; margin-top: 20px; padding-bottom: 20px;">
+          <div style="flex: 1; display: flex; gap: 10px;">
+            <button onclick="addToCart()" style="flex: 1; padding: 14px; background: var(--gradient-gold); color: white; border: none; border-radius: 25px; font-size: 15px; font-weight: 600; cursor: pointer;">
+              加入购物车
+            </button>
+            <button onclick="buyNow()" style="flex: 1; padding: 14px; background: var(--red); color: white; border: none; border-radius: 25px; font-size: 15px; font-weight: 600; cursor: pointer;">
+              立即购买
+            </button>
           </div>
         </div>
       </div>
@@ -2102,13 +2531,18 @@
         <i class="ri-home-4-fill"></i>
         <span>首页</span>
       </div>
-      <div class="tab-item" onclick="switchTab('mall')">
+      <div class="tab-item" onclick="switchTab('category')">
         <i class="ri-store-2-line"></i>
         <span>商城</span>
       </div>
-      <div class="tab-item" onclick="switchTab('points-mall')">
-        <i class="ri-exchange-funds-line"></i>
-        <span>积分</span>
+      <div class="tab-item" onclick="switchTab('cart')">
+        <i class="ri-shopping-cart-2-line"></i>
+        <span>购物车</span>
+        <span class="badge" id="cartBadge" style="display: none;">0</span>
+      </div>
+      <div class="tab-item" onclick="switchTab('blindbox')">
+        <i class="ri-gift-line"></i>
+        <span>盲盒</span>
       </div>
       <div class="tab-item" onclick="switchTab('member')">
         <i class="ri-vip-diamond-line"></i>
@@ -2117,76 +2551,454 @@
     </div>
   </div>
 
-  <!-- 兑换确认弹窗 -->
-  <div class="modal-overlay" id="exchangeModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-icon" id="modalIcon"><img src="images/Pearl_jewelry_care_kit__cleani_2026-05-02T04-27-58.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
-        <div class="modal-title" id="modalTitle">确认兑换</div>
-        <div class="modal-subtitle" id="modalSubtitle">兑换后将扣除相应积分</div>
-      </div>
-      <div class="modal-info">
-        <div class="modal-row">
-          <span class="label">兑换商品</span>
-          <span class="value" id="modalProduct">珍珠清洁护理套装</span>
+  <!-- 分享弹窗 -->
+  <div class="share-modal" id="shareModal">
+    <div class="share-modal-content">
+      <h3 class="share-modal-title"><i class="ri-share-line"></i>分享赚积分</h3>
+      <div class="share-options">
+        <div class="share-option" onclick="shareTo('wechat')">
+          <i class="ri-wechat-fill"></i>
+          <span>微信</span>
         </div>
-        <div class="modal-row">
-          <span class="label">当前积分</span>
-          <span class="value points" id="modalCurrentPoints">8,860 积分</span>
+        <div class="share-option" onclick="shareTo('weibo')">
+          <i class="ri-weibo-fill"></i>
+          <span>微博</span>
         </div>
-        <div class="modal-row">
-          <span class="label">消耗积分</span>
-          <span class="value deduct" id="modalDeductPoints">-2,000 积分</span>
-        </div>
-        <div class="modal-row">
-          <span class="label">剩余积分</span>
-          <span class="value points" id="modalRemainPoints">6,860 积分</span>
+        <div class="share-option" onclick="shareTo('qq')">
+          <i class="ri-qq-fill"></i>
+          <span>QQ</span>
         </div>
       </div>
-      <div class="modal-buttons">
-        <button class="modal-btn cancel" onclick="closeExchangeModal()">取消</button>
-        <button class="modal-btn confirm" onclick="confirmExchange()">确认兑换</button>
+      <div class="share-link">
+        <i class="ri-links-line" style="color: var(--gold);"></i>
+        <input type="text" id="shareLink" value="https://zuyun-dongfang.com/invite?uid=88888888" readonly>
+        <button onclick="copyLink()">复制</button>
       </div>
-    </div>
-  </div>
-
-  <!-- 兑换成功弹窗 -->
-  <div class="modal-overlay success-modal" id="successModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="success-check"><i class="ri-check-line"></i></div>
-        <div class="modal-title">兑换成功！</div>
-        <div class="modal-subtitle" id="successDesc">请到"我的订单"查看兑换记录</div>
-      </div>
-      <div class="modal-buttons">
-        <button class="modal-btn cancel" onclick="closeSuccessModal()">继续兑换</button>
-        <button class="modal-btn confirm" onclick="viewOrders()">查看订单</button>
-      </div>
+      <button class="share-cancel" onclick="closeShareModal()">取消</button>
     </div>
   </div>
 
   <script>
-    // 当前积分
+    // ========== 全局状态 ==========
     let userPoints = 8860;
+    let cart = [];
+    let currentProduct = null;
+    let usePointsOffset = false;
 
-    // 页面切换
+    // ========== 商品数据 ==========
+    const products = [
+      {
+        id: 1,
+        name: '天然海水珍珠项链 经典款',
+        price: 2680,
+        originalPrice: 3200,
+        image: 'images/Classic_Akoya_pearl_necklace___2026-05-02T04-28-36.png',
+        type: 'physical',
+        sales: 856,
+        points: 2000,
+        desc: '精选优质海水珍珠，圆润光泽，18K金扣设计，优雅大方，适合各种场合佩戴。'
+      },
+      {
+        id: 2,
+        name: 'Akoya极光天女珠耳钉',
+        price: 1880,
+        originalPrice: 2280,
+        image: 'images/Japanese_Akoya_pearl_stud_earr_2026-05-02T04-27-20.png',
+        type: 'physical',
+        sales: 623,
+        points: 1500,
+        desc: '日本Akoya海水珍珠，极光色泽，精致耳钉设计，日常通勤必备。'
+      },
+      {
+        id: 3,
+        name: '南洋金珠吊坠 18K金镶嵌',
+        price: 5800,
+        originalPrice: 6800,
+        image: 'images/Golden_South_Sea_pearl_pendant_2026-05-02T04-27-25.png',
+        type: 'physical',
+        sales: 412,
+        points: 3000,
+        desc: '澳洲南洋金珠，直径12-14mm，18K金镶嵌，奢华大气。'
+      },
+      {
+        id: 4,
+        name: '珍珠皇后澳白戒指',
+        price: 3980,
+        originalPrice: 4800,
+        image: 'images/White_Akoya_pearl_ring__18K_wh_2026-05-02T04-27-21.png',
+        type: 'physical',
+        sales: 389,
+        points: 2500,
+        desc: '顶级澳白珍珠，S925银镀金戒托，简约优雅设计。'
+      },
+      {
+        id: 5,
+        name: '大溪地黑珍珠手链',
+        price: 4200,
+        originalPrice: 5000,
+        image: 'images/Tahitian_black_pearl_bracelet__2026-05-02T04-27-51.png',
+        type: 'physical',
+        sales: 298,
+        points: 2800,
+        desc: '大溪地黑珍珠项链，神秘优雅，适合晚宴佩戴。'
+      },
+      {
+        id: 6,
+        name: '珍珠皇冠套装 结婚首选',
+        price: 12800,
+        originalPrice: 15800,
+        image: 'images/Elegant_pearl_tiara_crown_set__2026-05-02T04-28-02.png',
+        type: 'physical',
+        sales: 156,
+        points: 5000,
+        desc: '奢华珍珠皇冠套装，包含项链、耳钉、皇冠，完美婚礼搭配。'
+      },
+      // 虚拟商品
+      {
+        id: 7,
+        name: 'Adobe全家桶 订阅一年',
+        price: 2999,
+        originalPrice: 3999,
+        image: 'images/Pearl_jewelry_store_voucher_co_2026-05-02T04-28-37.png',
+        type: 'virtual',
+        sales: 1234,
+        points: 2000,
+        desc: '包含PS、AI、PR、AE等全部Adobe软件，一键激活，即刻使用。',
+        isVirtual: true
+      },
+      {
+        id: 8,
+        name: 'Office 365 家庭版 1年订阅',
+        price: 399,
+        originalPrice: 499,
+        image: 'images/Pearl_jewelry_store_voucher_co_2026-05-02T04-28-37.png',
+        type: 'virtual',
+        sales: 2341,
+        points: 300,
+        desc: 'Word、Excel、PowerPoint、OneDrive云存储，支持6人共享。',
+        isVirtual: true
+      },
+      {
+        id: 9,
+        name: '腾讯视频VIP年卡',
+        price: 198,
+        originalPrice: 268,
+        image: 'images/Pearl_jewelry_store_voucher_co_2026-05-02T04-28-37.png',
+        type: 'virtual',
+        sales: 5678,
+        points: 150,
+        desc: '腾讯视频VIP年卡，畅享高清影视资源。',
+        isVirtual: true
+      },
+      {
+        id: 10,
+        name: '盲盒兑换券',
+        price: 0,
+        originalPrice: 0,
+        image: 'images/Pearl_jewelry_care_kit__cleani_2026-05-02T04-27-58.png',
+        type: 'points',
+        sales: 890,
+        points: 500,
+        desc: '可兑换任意盲盒一次，惊喜好物等你拿！'
+      },
+      {
+        id: 11,
+        name: '珍珠清洁护理套装',
+        price: 0,
+        originalPrice: 199,
+        image: 'images/Pearl_jewelry_care_kit__cleani_2026-05-02T04-27-58.png',
+        type: 'points',
+        sales: 456,
+        points: 2000,
+        desc: '专业珍珠清洁护理套装，延长珍珠饰品寿命。'
+      }
+    ];
+
+    // 盲盒奖品
+    const blindboxPrizes = [
+      { name: '南洋金珠吊坠', value: 5800, rarity: '稀有', img: 'images/Golden_South_Sea_pearl_pendant_2026-05-02T04-27-25.png' },
+      { name: '腾讯视频VIP月卡', value: 25, rarity: '普通', img: 'images/Pearl_jewelry_store_voucher_co_2026-05-02T04-28-37.png' },
+      { name: '50积分', value: 50, rarity: '普通', img: 'images/Pearl_jewelry专用保养油__delicate_b_2026-05-02T04-28-04.png' },
+      { name: 'Akoya珍珠耳钉', value: 1880, rarity: '珍稀', img: 'images/Japanese_Akoya_pearl_stud_earr_2026-05-02T04-27-20.png' },
+      { name: '100积分返还', value: 100, rarity: '普通', img: 'images/Pearl_jewelry专用保养油__delicate_b_2026-05-02T04-28-04.png' },
+      { name: '全场8折券', value: 0, rarity: '稀有', img: 'images/Pearl_jewelry_care_kit__cleani_2026-05-02T04-27-58.png' }
+    ];
+
+    // ========== 页面切换 ==========
     function switchTab(page) {
-      // 隐藏所有页面
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      // 显示目标页面
       document.getElementById('page-' + page).classList.add('active');
-      // 更新导航
+      
       document.querySelectorAll('.tab-item').forEach(t => t.classList.remove('active'));
-      const tabMap = {
-        'home': 0,
-        'mall': 1,
-        'points-mall': 2,
-        'member': 3
-      };
-      document.querySelectorAll('.tab-item')[tabMap[page]].classList.add('active');
+      const tabIndex = { 'home': 0, 'category': 1, 'cart': 2, 'blindbox': 3, 'member': 4 };
+      document.querySelectorAll('.tab-item')[tabIndex[page] || 0].classList.add('active');
+
+      // 渲染对应页面内容
+      if (page === 'category') renderProducts();
+      if (page === 'cart') renderCart();
     }
 
-    // Toast 提示
+    // ========== 商品渲染 ==========
+    function renderProducts(filter = 'all') {
+      const grid = document.getElementById('productGrid');
+      let filtered = filter === 'all' ? products : products.filter(p => p.type === filter);
+      
+      grid.innerHTML = filtered.map(p => `
+        <div class="product-card" onclick="showDetail(${p.id})">
+          <div class="product-img">
+            <img src="${p.image}" alt="${p.name}">
+            ${p.isVirtual ? '<span class="product-badge virtual">虚拟</span>' : ''}
+            ${p.type === 'points' ? '<span class="product-badge points">积分</span>' : ''}
+          </div>
+          <div class="product-info">
+            <div class="product-name">${p.name}</div>
+            <div class="product-price">
+              ${p.type === 'points' ? '' : '¥' + p.price.toLocaleString()}
+              ${p.type === 'points' ? '<span style="color: var(--gold-dark); font-size: 14px;">' + p.points + '积分</span>' : ''}
+              ${p.originalPrice > p.price ? '<span class="original">¥' + p.originalPrice.toLocaleString() + '</span>' : ''}
+            </div>
+            <div class="product-bottom">
+              <span class="product-sales">已售 ${p.sales}</span>
+              <button class="product-add-btn" onclick="event.stopPropagation(); quickAddCart(${p.id})">+</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterProducts(type, el) {
+      document.querySelectorAll('.category-item').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+      renderProducts(type);
+    }
+
+    // ========== 商品详情 ==========
+    function showDetail(id) {
+      const p = products.find(prod => prod.id === id);
+      if (!p) return;
+      
+      currentProduct = p;
+      
+      document.getElementById('detailImg').src = p.image;
+      document.getElementById('detailName').textContent = p.name;
+      document.getElementById('detailDesc').textContent = p.desc;
+      document.getElementById('detailPrice').textContent = p.type === 'points' ? p.points + '积分' : '¥' + p.price.toLocaleString();
+      document.getElementById('detailOriginal').textContent = p.originalPrice ? '¥' + p.originalPrice.toLocaleString() : '';
+      document.getElementById('detailOriginal').style.display = p.originalPrice ? 'inline' : 'none';
+      document.getElementById('detailSku').textContent = 'SP-' + (1000 + p.id);
+      document.getElementById('detailType').textContent = p.isVirtual ? '虚拟商品' : '实物商品';
+      document.getElementById('detailShip').textContent = p.isVirtual ? '自动发货 · 即刻到账' : '顺丰速运 · 预计3-5天送达';
+      document.getElementById('detailPointsOffset').textContent = p.points + '积分抵 ¥' + Math.floor(p.points / 100);
+      document.getElementById('virtualInfo').style.display = p.isVirtual ? 'block' : 'none';
+      
+      // 标签
+      const tags = [];
+      if (p.isVirtual) tags.push('<span class="detail-tag virtual">虚拟商品 · 即刻发货</span>');
+      if (p.type === 'points') tags.push('<span class="detail-tag">积分兑换</span>');
+      if (p.originalPrice > p.price) tags.push('<span class="detail-tag">' + Math.round((1 - p.price / p.originalPrice) * 100) + ' OFF</span>');
+      document.getElementById('detailTags').innerHTML = tags.join('');
+
+      document.getElementById('detailPage').classList.add('active');
+    }
+
+    function closeDetail() {
+      document.getElementById('detailPage').classList.remove('active');
+    }
+
+    // ========== 购物车 ==========
+    function quickAddCart(id) {
+      const p = products.find(prod => prod.id === id);
+      const exist = cart.find(c => c.id === id);
+      if (exist) {
+        exist.qty++;
+      } else {
+        cart.push({ ...p, qty: 1, checked: true });
+      }
+      updateCartBadge();
+      showToast('已加入购物车');
+    }
+
+    function addToCart() {
+      if (!currentProduct) return;
+      quickAddCart(currentProduct.id);
+      closeDetail();
+    }
+
+    function buyNow() {
+      if (!currentProduct) return;
+      quickAddCart(currentProduct.id);
+      closeDetail();
+      switchTab('cart');
+    }
+
+    function renderCart() {
+      const content = document.getElementById('cartContent');
+      
+      if (cart.length === 0) {
+        content.innerHTML = `
+          <div class="cart-empty">
+            <i class="ri-shopping-cart-line"></i>
+            <h3>购物车是空的</h3>
+            <p>快去挑选心仪的商品吧</p>
+            <span class="go-shop" onclick="switchTab('category')">去逛逛</span>
+          </div>
+        `;
+        return;
+      }
+
+      const total = cart.reduce((sum, item) => {
+        if (item.checked) {
+          return sum + (item.type === 'points' ? 0 : item.price) * item.qty;
+        }
+        return sum;
+      }, 0);
+
+      const totalPoints = cart.reduce((sum, item) => {
+        if (item.checked) return sum + item.points * item.qty;
+        return sum;
+      }, 0);
+
+      content.innerHTML = `
+        <div class="cart-points-row">
+          <label><i class="ri-coins-line"></i> 使用积分抵扣（可用 ${userPoints} 积分）</label>
+          <div class="switch ${usePointsOffset ? 'active' : ''}" onclick="togglePointsOffset()"></div>
+        </div>
+        
+        <div class="cart-list">
+          ${cart.map((item, idx) => `
+            <div class="cart-store">
+              <div class="cart-item">
+                <div class="cart-check ${item.checked ? 'checked' : ''}" onclick="toggleCartItem(${idx})">
+                  <i class="ri-check-line"></i>
+                </div>
+                <div class="cart-item-img">
+                  <img src="${item.image}" alt="${item.name}">
+                </div>
+                <div class="cart-item-info">
+                  <div class="cart-item-name">${item.name}</div>
+                  <div class="cart-item-spec">${item.isVirtual ? '虚拟商品' : '实物商品'}</div>
+                  <div class="cart-item-bottom">
+                    <span class="cart-item-price">
+                      ${item.type === 'points' ? item.points + '积分' : '¥' + item.price.toLocaleString()}
+                    </span>
+                    <div class="cart-qty">
+                      <button onclick="changeQty(${idx}, -1)">-</button>
+                      <span>${item.qty}</span>
+                      <button onclick="changeQty(${idx}, 1)">+</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        
+        <div class="cart-footer">
+          <div class="cart-total">
+            合计：<span class="price">¥${total.toLocaleString()}</span>
+            <div class="points">可用 ${totalPoints} 积分抵扣 ¥${Math.floor(totalPoints / 100)}</div>
+          </div>
+          <button class="cart-checkout" onclick="checkout()">结算 (${cart.filter(i => i.checked).length})</button>
+        </div>
+      `;
+    }
+
+    function toggleCartItem(idx) {
+      cart[idx].checked = !cart[idx].checked;
+      renderCart();
+    }
+
+    function changeQty(idx, delta) {
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) {
+        cart.splice(idx, 1);
+      }
+      updateCartBadge();
+      renderCart();
+    }
+
+    function togglePointsOffset() {
+      usePointsOffset = !usePointsOffset;
+      renderCart();
+    }
+
+    function updateCartBadge() {
+      const badge = document.getElementById('cartBadge');
+      const count = cart.reduce((sum, item) => sum + item.qty, 0);
+      if (count > 0) {
+        badge.style.display = 'flex';
+        badge.textContent = count;
+      } else {
+        badge.style.display = 'none';
+      }
+    }
+
+    function checkout() {
+      if (cart.filter(i => i.checked).length === 0) {
+        showToast('请选择商品');
+        return;
+      }
+      showToast('订单提交成功！');
+      cart = cart.filter(i => !i.checked);
+      updateCartBadge();
+      renderCart();
+    }
+
+    // ========== 盲盒 ==========
+    function openBlindbox(el) {
+      if (userPoints < 500) {
+        showToast('积分不足，需要500积分');
+        return;
+      }
+
+      userPoints -= 500;
+      document.getElementById('blindboxPoints').textContent = userPoints.toLocaleString();
+      document.getElementById('memberPoints').textContent = userPoints.toLocaleString();
+      document.getElementById('homePoints').textContent = userPoints.toLocaleString();
+
+      // 随机抽取
+      const prize = blindboxPrizes[Math.floor(Math.random() * blindboxPrizes.length)];
+      
+      // 更新结果
+      document.getElementById('resultImg').src = prize.img;
+      document.getElementById('resultName').textContent = prize.name;
+      document.getElementById('resultRarity').textContent = prize.rarity + ' · ' + (prize.value > 0 ? '价值 ¥' + prize.value : '积分券');
+
+      // 返积分
+      if (prize.name.includes('积分')) {
+        const pts = parseInt(prize.name.replace(/\D/g, '')) || 100;
+        userPoints += pts;
+        showToast('恭喜获得 ' + pts + ' 积分！');
+      }
+
+      document.getElementById('blindboxResult').classList.add('active');
+    }
+
+    function closeBlindboxResult() {
+      document.getElementById('blindboxResult').classList.remove('active');
+    }
+
+    // ========== 分享 ==========
+    function showShareModal() {
+      document.getElementById('shareModal').classList.add('active');
+    }
+
+    function closeShareModal() {
+      document.getElementById('shareModal').classList.remove('active');
+    }
+
+    function shareTo(platform) {
+      showToast('已打开' + (platform === 'wechat' ? '微信' : platform === 'weibo' ? '微博' : 'QQ') + '分享');
+    }
+
+    function copyLink() {
+      const input = document.getElementById('shareLink');
+      input.select();
+      navigator.clipboard.writeText(input.value);
+      showToast('链接已复制');
+    }
+
+    // ========== Toast ==========
     function showToast(msg) {
       const existing = document.querySelector('.toast');
       if (existing) existing.remove();
@@ -2202,119 +3014,15 @@
       }, 1500);
     }
 
-    // 积分商城 Tab 切换
-    function setMallTab(el, type) {
-      document.querySelectorAll('.mall-tab').forEach(t => t.classList.remove('active'));
-      el.classList.add('active');
-      document.querySelectorAll('.mall-grid').forEach(g => g.style.display = 'none');
-      document.getElementById('mall-' + type).style.display = 'grid';
-    }
-
-    // 待兑换的商品信息
-    let pendingExchange = null;
-
-    // 积分兑换 - 打开确认弹窗
-    function exchangeGift(btn, name) {
-      const pointsMatch = btn.parentElement.querySelector('.mall-points').textContent.match(/(\d+)/);
-      const points = parseInt(pointsMatch[1]);
-
-      if (userPoints < points) {
-        showToast('积分不足，还差 ' + (points - userPoints) + ' 积分');
-        return;
-      }
-
-      // 保存待兑换信息
-      pendingExchange = {
-        name: name,
-        points: points,
-        btn: btn
-      };
-
-      // 更新弹窗内容
-      document.getElementById('modalProduct').textContent = name;
-      document.getElementById('modalCurrentPoints').textContent = formatNumber(userPoints) + ' 积分';
-      document.getElementById('modalDeductPoints').textContent = '-' + formatNumber(points) + ' 积分';
-      document.getElementById('modalRemainPoints').textContent = formatNumber(userPoints - points) + ' 积分';
-
-      // 设置商品图标
-      const iconMap = {
-        '护理套装': 'images/Pearl_jewelry_care_kit__cleani_2026-05-02T04-27-58.png',
-        '耳钉': 'images/Sterling_silver_gold_plated_pe_2026-05-02T04-28-36.png',
-        '保养油': 'images/Pearl_jewelry专用保养油__delicate_b_2026-05-02T04-28-04.png',
-        '护理券': 'images/Pearl_jewelry_store_voucher_co_2026-05-02T04-28-37.png',
-        '清洁服务': 'images/Elegant_baroque_pearl_pendant__2026-05-02T04-27-24.png',
-        '穿线服务': 'images/Classic_Akoya_pearl_necklace___2026-05-02T04-28-36.png',
-        '50元券': 'images/Pearl_jewelry_store_voucher_co_2026-05-02T04-28-37.png',
-        '9折券': 'images/Sterling_silver_gold_plated_pe_2026-05-02T04-28-36.png'
-      };
-      const iconImg = document.getElementById('modalIcon');
-      if (iconMap[name]) {
-        iconImg.innerHTML = '<img src="' + iconMap[name] + '" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">';
-      } else {
-        iconImg.innerHTML = '<img src="images/Pearl_jewelry_care_kit__cleani_2026-05-02T04-27-58.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">';
-      }
-
-      // 显示弹窗
-      document.getElementById('exchangeModal').classList.add('show');
-    }
-
-    // 关闭兑换弹窗
-    function closeExchangeModal() {
-      document.getElementById('exchangeModal').classList.remove('show');
-      pendingExchange = null;
-    }
-
-    // 确认兑换
-    function confirmExchange() {
-      if (!pendingExchange) return;
-
-      const { name, points, btn } = pendingExchange;
-
-      // 扣除积分
-      userPoints -= points;
-
-      // 更新按钮状态
-      btn.textContent = '已兑换';
-      btn.disabled = true;
-
-      // 关闭确认弹窗
-      closeExchangeModal();
-
-      // 显示成功弹窗
-      document.getElementById('successDesc').textContent = '请到"我的订单"查看兑换记录';
-      document.getElementById('successModal').classList.add('show');
-    }
-
-    // 关闭成功弹窗
-    function closeSuccessModal() {
-      document.getElementById('successModal').classList.remove('show');
-      pendingExchange = null;
-    }
-
-    // 查看订单
-    function viewOrders() {
-      closeSuccessModal();
-      showToast('查看兑换订单');
-      switchTab('member');
-    }
-
-    // 格式化数字
-    function formatNumber(num) {
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
-
-    // 显示积分规则页面
+    // ========== 积分规则 ==========
     function showRules() {
       switchTab('rules');
     }
 
-    // 分类切换
-    document.querySelectorAll('.category-item').forEach(item => {
-      item.addEventListener('click', function() {
-        document.querySelectorAll('.category-item').forEach(i => i.classList.remove('active'));
-        this.classList.add('active');
-        showToast('筛选: ' + this.textContent);
-      });
+    // ========== 初始化 ==========
+    document.addEventListener('DOMContentLoaded', function() {
+      renderProducts();
+      updateCartBadge();
     });
   </script>
 </body>
