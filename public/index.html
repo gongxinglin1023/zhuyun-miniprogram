@@ -869,6 +869,299 @@
       color: var(--green);
     }
 
+    /* ========== AI定制模块 ========== */
+    .ai-custom-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 200;
+      display: none;
+      overflow-y: auto;
+    }
+    .ai-custom-modal.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    .ai-custom-container {
+      background: white;
+      min-height: 100%;
+      padding-bottom: 30px;
+    }
+    .ai-custom-header {
+      background: var(--gradient-dark);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .ai-custom-header h2 {
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ai-custom-close {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 24px;
+    }
+    .ai-custom-close:hover {
+      opacity: 0.8;
+    }
+    .ai-custom-content {
+      padding: 20px;
+    }
+    .ai-custom-intro {
+      background: linear-gradient(135deg, #FFF9E6 0%, #FFF3E0 100%);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid var(--gold-light);
+    }
+    .ai-custom-intro h3 {
+      color: var(--gold-dark);
+      font-size: 15px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ai-custom-intro p {
+      font-size: 13px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    .ai-custom-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .ai-custom-tab {
+      flex: 1;
+      padding: 12px;
+      border: 2px solid var(--light-gray);
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .ai-custom-tab.active {
+      border-color: var(--gold);
+      background: rgba(201, 169, 110, 0.1);
+    }
+    .ai-custom-tab i {
+      font-size: 24px;
+      color: var(--gold);
+      margin-bottom: 5px;
+      display: block;
+    }
+    .ai-custom-tab span {
+      font-size: 13px;
+      color: var(--dark);
+    }
+    .ai-custom-panel {
+      display: none;
+    }
+    .ai-custom-panel.active {
+      display: block;
+    }
+    .ai-upload-area {
+      border: 2px dashed var(--light-gray);
+      border-radius: 12px;
+      padding: 30px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin-bottom: 15px;
+    }
+    .ai-upload-area:hover {
+      border-color: var(--gold);
+      background: rgba(201, 169, 110, 0.05);
+    }
+    .ai-upload-area.has-image {
+      padding: 10px;
+    }
+    .ai-upload-area i {
+      font-size: 48px;
+      color: var(--light-gray);
+      margin-bottom: 10px;
+    }
+    .ai-upload-area p {
+      font-size: 14px;
+      color: var(--gray);
+      margin-bottom: 5px;
+    }
+    .ai-upload-area small {
+      font-size: 12px;
+      color: #999;
+    }
+    .ai-upload-preview {
+      width: 100%;
+      max-height: 250px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .ai-upload-preview.hidden {
+      display: none;
+    }
+    .ai-textarea {
+      width: 100%;
+      min-height: 120px;
+      border: 2px solid var(--light-gray);
+      border-radius: 12px;
+      padding: 15px;
+      font-size: 14px;
+      resize: none;
+      margin-bottom: 15px;
+      font-family: inherit;
+    }
+    .ai-textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .ai-textarea::placeholder {
+      color: #aaa;
+    }
+    .ai-template-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+    .ai-template-item {
+      border: 2px solid var(--light-gray);
+      border-radius: 10px;
+      padding: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-align: center;
+    }
+    .ai-template-item:hover {
+      border-color: var(--gold);
+    }
+    .ai-template-item.active {
+      border-color: var(--gold);
+      background: rgba(201, 169, 110, 0.1);
+    }
+    .ai-template-item i {
+      font-size: 28px;
+      color: var(--gold);
+      margin-bottom: 5px;
+    }
+    .ai-template-item span {
+      font-size: 12px;
+      color: var(--dark);
+      display: block;
+    }
+    .ai-generate-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--gradient-gold);
+      border: none;
+      border-radius: 25px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s;
+    }
+    .ai-generate-btn:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-lg);
+    }
+    .ai-generate-btn:active {
+      transform: scale(0.98);
+    }
+    .ai-generate-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .ai-result-section {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--light-gray);
+    }
+    .ai-result-title {
+      font-size: 15px;
+      font-weight: bold;
+      color: var(--dark);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ai-result-loading {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .ai-result-loading i {
+      font-size: 48px;
+      color: var(--gold);
+      animation: spin 1s linear infinite;
+      margin-bottom: 15px;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .ai-result-loading p {
+      font-size: 14px;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    .ai-result-loading small {
+      font-size: 12px;
+      color: #999;
+    }
+    .ai-result-image {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: var(--shadow);
+    }
+    .ai-result-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .ai-result-btn {
+      flex: 1;
+      padding: 12px;
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+      background: white;
+      color: var(--gold);
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: all 0.3s;
+    }
+    .ai-result-btn:hover {
+      background: rgba(201, 169, 110, 0.1);
+    }
+    .ai-result-btn.primary {
+      background: var(--gradient-gold);
+      color: white;
+      border: none;
+    }
+
     /* 盲盒活动入口 */
     .blindbox-banner {
       background: linear-gradient(135deg, #E1BEE7 0%, #CE93D8 100%);
@@ -2137,7 +2430,7 @@
           <h4>珍珠饰品</h4>
           <p>天然海水珍珠</p>
         </div>
-        <div class="category-card" onclick="switchTab('category')">
+        <div class="category-card" onclick="showAICustomModule()">
           <i class="ri-robot-line"></i>
           <h4>AI定制</h4>
           <p>智能个性化设计</p>
@@ -2282,6 +2575,116 @@
               <div class="timeline-text">商家正在打包商品</div>
               <div class="timeline-time">2026-05-07 18:20</div>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== AI定制模块 ========== -->
+    <div class="ai-custom-modal" id="aiCustomModal">
+      <div class="ai-custom-container">
+        <div class="ai-custom-header">
+          <h2><i class="ri-robot-line"></i> AI定制设计</h2>
+          <div class="ai-custom-close" onclick="closeAICustomModule()">×</div>
+        </div>
+        
+        <div class="ai-custom-content">
+          <!-- 功能介绍 -->
+          <div class="ai-custom-intro">
+            <h3><i class="ri-lightbulb-line"></i> 如何使用AI定制？</h3>
+            <p>上传您的草图或描述您的想法，AI将为您生成独一无二的珍珠首饰设计稿。设计完成后可联系客服制作成品。</p>
+          </div>
+          
+          <!-- 切换标签 -->
+          <div class="ai-custom-tabs">
+            <div class="ai-custom-tab active" onclick="switchAICustomTab('upload')">
+              <i class="ri-image-line"></i>
+              <span>上传草图</span>
+            </div>
+            <div class="ai-custom-tab" onclick="switchAICustomTab('describe')">
+              <i class="ri-text"></i>
+              <span>文字描述</span>
+            </div>
+          </div>
+          
+          <!-- 上传草图面板 -->
+          <div class="ai-custom-panel active" id="aiPanelUpload">
+            <div class="ai-upload-area" id="aiUploadArea" onclick="document.getElementById('aiFileInput').click()">
+              <i class="ri-add-photo-line"></i>
+              <p>点击上传您的草图或参考图片</p>
+              <small>支持 JPG、PNG 格式</small>
+              <img src="" alt="预览" class="ai-upload-preview hidden" id="aiUploadPreview">
+            </div>
+            <input type="file" id="aiFileInput" accept="image/*" style="display:none" onchange="handleAIImageUpload(this)">
+            
+            <p style="font-size: 13px; color: var(--gray); margin-bottom: 15px;">💡 快速模板：</p>
+            <div class="ai-template-list">
+              <div class="ai-template-item" onclick="selectAITemplate(this, 'necklace')">
+                <i class="ri-links-line"></i>
+                <span>项链设计</span>
+              </div>
+              <div class="ai-template-item" onclick="selectAITemplate(this, 'earring')">
+                <i class="ri-disc-line"></i>
+                <span>耳环设计</span>
+              </div>
+              <div class="ai-template-item" onclick="selectAITemplate(this, 'bracelet')">
+                <i class="ri-hand-heart-line"></i>
+                <span>手链设计</span>
+              </div>
+              <div class="ai-template-item" onclick="selectAITemplate(this, 'ring')">
+                <i class="ri-checkbox-blank-circle-line"></i>
+                <span>戒指设计</span>
+              </div>
+            </div>
+            
+            <textarea class="ai-textarea" id="aiUploadDesc" placeholder="补充说明（可选）：描述您想要的特点、风格、预算等..."></textarea>
+            
+            <button class="ai-generate-btn" onclick="generateAIDesign()">
+              <i class="ri-magic-line"></i>
+              开始生成设计
+            </button>
+          </div>
+          
+          <!-- 文字描述面板 -->
+          <div class="ai-custom-panel" id="aiPanelDescribe">
+            <p style="font-size: 13px; color: var(--gray); margin-bottom: 10px;">💡 选择设计类型：</p>
+            <div class="ai-template-list">
+              <div class="ai-template-item" onclick="selectAITemplate(this, 'necklace')">
+                <i class="ri-links-line"></i>
+                <span>项链</span>
+              </div>
+              <div class="ai-template-item" onclick="selectAITemplate(this, 'earring')">
+                <i class="ri-disc-line"></i>
+                <span>耳环</span>
+              </div>
+              <div class="ai-template-item" onclick="selectAITemplate(this, 'bracelet')">
+                <i class="ri-hand-heart-line"></i>
+                <span>手链</span>
+              </div>
+              <div class="ai-template-item" onclick="selectAITemplate(this, 'ring')">
+                <i class="ri-checkbox-blank-circle-line"></i>
+                <span>戒指</span>
+              </div>
+            </div>
+            
+            <textarea class="ai-textarea" id="aiDescribeText" placeholder="描述您想要的珍珠首饰，例如：
+• 想要一条akoya海水珠项链，8-9mm珠径
+• 简约优雅风格，适合日常佩戴
+• 预算在2000元左右
+• 希望有金色镶钻的吊坠"></textarea>
+            
+            <button class="ai-generate-btn" onclick="generateAIDesign()">
+              <i class="ri-magic-line"></i>
+              生成设计方案
+            </button>
+          </div>
+          
+          <!-- 生成结果区域 -->
+          <div class="ai-result-section" id="aiResultSection" style="display: none;">
+            <div class="ai-result-title">
+              <i class="ri-sparkling-line"></i> 设计方案预览
+            </div>
+            <div id="aiResultContent"></div>
           </div>
         </div>
       </div>
@@ -3132,6 +3535,172 @@
       navigator.clipboard.writeText(input.value);
       showToast('链接已复制');
     }
+
+    // ========== AI定制模块 ==========
+    function showAICustomModule() {
+      document.getElementById('aiCustomModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+      // 重置状态
+      resetAIState();
+    }
+
+    function closeAICustomModule() {
+      document.getElementById('aiCustomModal').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function resetAIState() {
+      // 重置上传预览
+      const preview = document.getElementById('aiUploadPreview');
+      preview.src = '';
+      preview.classList.add('hidden');
+      document.getElementById('aiUploadArea').classList.remove('has-image');
+      document.getElementById('aiFileInput').value = '';
+      // 重置文本
+      document.getElementById('aiUploadDesc').value = '';
+      document.getElementById('aiDescribeText').value = '';
+      // 隐藏结果
+      document.getElementById('aiResultSection').style.display = 'none';
+      // 重置模板选中
+      document.querySelectorAll('.ai-template-item').forEach(item => {
+        item.classList.remove('active');
+      });
+    }
+
+    function switchAICustomTab(tab) {
+      document.querySelectorAll('.ai-custom-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.ai-custom-panel').forEach(p => p.classList.remove('active'));
+      
+      if (tab === 'upload') {
+        document.querySelector('.ai-custom-tab:nth-child(1)').classList.add('active');
+        document.getElementById('aiPanelUpload').classList.add('active');
+      } else {
+        document.querySelector('.ai-custom-tab:nth-child(2)').classList.add('active');
+        document.getElementById('aiPanelDescribe').classList.add('active');
+      }
+    }
+
+    function handleAIImageUpload(input) {
+      const file = input.files[0];
+      if (!file) return;
+      
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const preview = document.getElementById('aiUploadPreview');
+        preview.src = e.target.result;
+        preview.classList.remove('hidden');
+        document.getElementById('aiUploadArea').classList.add('has-image');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function selectAITemplate(element, type) {
+      element.classList.toggle('active');
+    }
+
+    function generateAIDesign() {
+      // 获取输入内容
+      const uploadDesc = document.getElementById('aiUploadDesc').value.trim();
+      const describeText = document.getElementById('aiDescribeText').value.trim();
+      const selectedTemplate = document.querySelector('.ai-template-item.active');
+      const templateName = selectedTemplate ? selectedTemplate.querySelector('span').textContent : '';
+      
+      // 检查是否有内容
+      const hasUploadImage = !document.getElementById('aiUploadPreview').classList.contains('hidden');
+      const activePanel = document.querySelector('.ai-custom-panel.active');
+      const isUploadTab = activePanel.id === 'aiPanelUpload';
+      
+      if (isUploadTab && !hasUploadImage && !uploadDesc) {
+        showToast('请上传草图或输入描述');
+        return;
+      }
+      if (!isUploadTab && !describeText) {
+        showToast('请输入设计描述');
+        return;
+      }
+      
+      // 显示加载状态
+      const resultSection = document.getElementById('aiResultSection');
+      const resultContent = document.getElementById('aiResultContent');
+      resultSection.style.display = 'block';
+      resultContent.innerHTML = `
+        <div class="ai-result-loading">
+          <i class="ri-loader-4-line"></i>
+          <p>AI正在为您生成设计方案...</p>
+          <small>预计需要10-15秒</small>
+        </div>
+      `;
+      
+      // 滚动到结果区域
+      resultSection.scrollIntoView({ behavior: 'smooth' });
+      
+      // 模拟AI生成（实际项目中替换为真实API调用）
+      setTimeout(function() {
+        // 生成设计结果
+        const designType = templateName || '珍珠首饰';
+        const desc = isUploadTab ? uploadDesc : describeText;
+        
+        resultContent.innerHTML = `
+          <div class="ai-result-loading" style="padding: 20px 0;">
+            <p style="color: var(--green); font-size: 15px;"><i class="ri-checkbox-circle-line"></i> 设计方案已生成！</p>
+          </div>
+          <img src="images/Classic_Akoya_pearl_necklace___2026-05-02T04-28-36.png" class="ai-result-image" alt="AI设计方案">
+          <div style="background: var(--light-gray); border-radius: 10px; padding: 15px; margin-bottom: 15px;">
+            <p style="font-size: 14px; color: var(--dark); margin-bottom: 8px;"><strong>设计说明：</strong></p>
+            <p style="font-size: 13px; color: var(--gray); line-height: 1.6;">
+              ${desc ? '基于您的描述「' + desc.substring(0, 50) + (desc.length > 50 ? '...' : '') + '」' : '基于您上传的草图'}，
+              AI为您生成了这款精美的${designType}设计方案。采用优质海水珍珠，配以18K金镶嵌，呈现优雅大气的风格。
+            </p>
+            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ddd;">
+              <p style="font-size: 13px; color: var(--gold);"><strong>预估价格：¥2,680</strong> <span style="font-size: 12px; color: var(--gray); text-decoration: line-through; margin-left: 8px;">¥3,200</span></p>
+              <p style="font-size: 12px; color: var(--green); margin-top: 5px;"><i class="ri-coins-line"></i> 可用 1,500 积分抵扣 ¥15</p>
+            </div>
+          </div>
+          <div class="ai-result-actions">
+            <button class="ai-result-btn" onclick="regenerateAIDesign()">
+              <i class="ri-refresh-line"></i> 重新生成
+            </button>
+            <button class="ai-result-btn primary" onclick="contactCustomService()">
+              <i class="ri-customer-service-2-line"></i> 联系客服
+            </button>
+          </div>
+          <button class="ai-generate-btn" style="margin-top: 15px;" onclick="addAIToCart()">
+            <i class="ri-shopping-cart-line"></i>
+            加入购物车
+          </button>
+        `;
+      }, 3000);
+    }
+
+    function regenerateAIDesign() {
+      // 重新生成设计
+      generateAIDesign();
+    }
+
+    function contactCustomService() {
+      showToast('客服微信号：zhuyun888');
+    }
+
+    function addAIToCart() {
+      cart.push({
+        id: 'ai-custom-' + Date.now(),
+        name: 'AI定制珍珠首饰',
+        price: 2680,
+        points: 1500,
+        quantity: 1,
+        image: 'images/Classic_Akoya_pearl_necklace___2026-05-02T04-28-36.png',
+        isVirtual: false
+      });
+      updateCartBadge();
+      showToast('已加入购物车');
+    }
+
+    // 点击模态框外部关闭
+    document.getElementById('aiCustomModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeAICustomModule();
+      }
+    });
 
     // ========== Toast ==========
     function showToast(msg) {
