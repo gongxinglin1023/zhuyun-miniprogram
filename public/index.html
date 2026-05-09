@@ -5,7 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>珠韵东方 - 会员积分商城</title>
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- ========== 品牌配置区 (修改此区域即可更新品牌信息) ========== -->
+  <script>
+  // ========== 品牌配置 / BRAND CONFIG ==========
+  const BRAND_CONFIG = {
+      // Logo配置 - 修改路径即可更换Logo
+      logo: {
+        main: 'images/logo.png', // 首页Logo
+        icon: 'images/logo.png', // 会员头像/小图标
+        favicon: 'images/logo.png' // 浏览器标签图标
+      },
+      
+      // 品牌名称
+      name: '珠韵东方',
+      subtitle: '会员积分商城',
+      
+      // 颜色主题 - 选择下方预设方案或自定义
+      colors: {
+        primary: '#C9A96E',      // 主色-金色
+        primaryDark: '#A88B4A',  // 深金色
+        primaryLight: '#E8D5A8', // 浅金色
+        dark: '#2C2C2C',
+        gray: '#666',
+        lightGray: '#F5F5F5',
+        white: '#FFFFFF',
+        red: '#E74C3C',
+        green: '#27AE60',
+        blue: '#3498DB',
+        purple: '#9B59B6',
+        orange: '#F39C12'
+      },
+      
+      // 颜色方案预设 (取消注释即可切换)
+      colorSchemes: {
+        // 方案1: 奢华金 (默认)
+        luxury: {
+          primary: '#C9A96E',
+          primaryDark: '#A88B4A', 
+          primaryLight: '#E8D5A8'
+        },
+        // 方案2: 优雅紫
+        elegant: {
+          primary: '#8B5CF6',
+          primaryDark: '#7C3AED',
+          primaryLight: '#DDD6FE'
+        },
+        // 方案3: 清新绿
+        fresh: {
+          primary: '#10B981',
+          primaryDark: '#059669',
+          primaryLight: '#A7F3D0'
+        },
+        // 方案4: 热情红
+        passionate: {
+          primary: '#EF4444',
+          primaryDark: '#DC2626',
+          primaryLight: '#FECACA'
+        },
+        // 方案5: 海洋蓝
+        ocean: {
+          primary: '#0EA5E9',
+          primaryDark: '#0284C7',
+          primaryLight: '#BAE6FD'
+        },
+        // 方案6: 少女粉
+        pink: {
+          primary: '#EC4899',
+          primaryDark: '#DB2777',
+          primaryLight: '#FBCFE8'
+        }
+      }
+    };
+    
+    // 切换颜色方案 (修改引号内的名称即可)
+    // 可选: 'luxury'(奢华金), 'elegant'(优雅紫), 'fresh'(清新绿), 
+    //       'passionate'(热情红), 'ocean'(海洋蓝), 'pink'(少女粉)
+    const CURRENT_SCHEME = 'luxury';
+    
+    // 应用颜色方案
+    (function applyColorScheme() {
+      const scheme = BRAND_CONFIG.colorSchemes[CURRENT_SCHEME] || BRAND_CONFIG.colorSchemes.luxury;
+      document.documentElement.style.setProperty('--gold', scheme.primary);
+      document.documentElement.style.setProperty('--gold-dark', scheme.primaryDark);
+      document.documentElement.style.setProperty('--gold-light', scheme.primaryLight);
+      document.documentElement.style.setProperty('--gradient-gold', 
+        `linear-gradient(135deg, ${scheme.primary} 0%, ${scheme.primaryLight} 50%, ${scheme.primary} 100%)`);
+    })();
+  </script>
   <style>
+    /* ========== 样式配置区 ========== */
     * {
       margin: 0;
       padding: 0;
@@ -30,6 +118,20 @@
       --gradient-dark: linear-gradient(180deg, #1a1a1a 0%, #2C2C2C 100%);
       --shadow: 0 4px 20px rgba(0,0,0,0.1);
       --shadow-lg: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    /* Logo样式 */
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .brand-logo-lg {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     body {
@@ -1928,6 +2030,39 @@
   </style>
 </head>
 <body>
+  <!-- 启动画面 / Splash Screen -->
+  <div id="splashScreen" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2C2C2C 0%, #1a1a1a 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+  ">
+    <img src="images/logo.png" style="width: 120px; height: 120px; border-radius: 50%; margin-bottom: 20px; animation: pulse 2s infinite;">
+    <div style="color: #C9A96E; font-size: 28px; font-weight: bold; margin-bottom: 8px;" id="splashBrandName">珠韵东方</div>
+    <div style="color: #888; font-size: 14px;">会员积分商城</div>
+    <div style="margin-top: 40px; color: #666; font-size: 12px;">Loading...</div>
+  </div>
+  <script>
+    // 启动画面自动隐藏
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var splash = document.getElementById('splashScreen');
+        splash.style.opacity = '0';
+        setTimeout(function() {
+          splash.style.display = 'none';
+        }, 500);
+      }, 1500);
+    });
+  </script>
+  
   <div class="phone-frame">
     <!-- 状态栏 -->
     <div class="status-bar">
@@ -1938,10 +2073,10 @@
     <!-- ========== 首页 ========== -->
     <div class="page active" id="page-home">
       <div class="home-header">
-        <h1><i class="ri-spa-line"></i>珠韵东方</h1>
+        <h1><img src="images/logo.png" class="brand-logo" alt="logo">珠韵东方</h1>
         <div class="member-quick-card" onclick="switchTab('member')">
           <div class="member-avatar">
-            <i class="ri-vip-diamond-fill"></i>
+            <img src="images/logo.png" class="brand-logo" alt="avatar">
           </div>
           <div class="member-info">
             <div class="member-name">尊贵的会员</div>
